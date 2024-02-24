@@ -1,4 +1,4 @@
-package com.example.scaapi.model.entity;
+package br.edu.ifsudestemg.sctapi.model.entity
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
