@@ -13,4 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Cliente extends Pessoa {
 
+
+    //@ManyToMany
+
 }

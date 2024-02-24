@@ -5,20 +5,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cinema{
+@MappedSuperclass
+public abstract class Usuário {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
-    private String cnpj;
+    private String cpf;
     private String email;
-    private String numSalas;
     private String telefone;
+    private boolean admin;
 
-    //@ManyToMany
-
+    @OneToOne(cascade = CascadeType.ALL)
 }
