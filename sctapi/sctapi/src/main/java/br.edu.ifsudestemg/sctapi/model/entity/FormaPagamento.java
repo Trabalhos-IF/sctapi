@@ -11,13 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Assento{
-    private String nome;
-    private boolean disponivel;
 
-    @ManyToOne
-    private TipoAssento tipoAssento;
+public class FormaPagamento{
 
-    @ManyToOne
-    private Sala sala;
 }

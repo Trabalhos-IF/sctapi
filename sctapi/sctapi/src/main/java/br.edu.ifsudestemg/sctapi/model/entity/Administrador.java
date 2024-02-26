@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Administrador extends Pessoa {
+public class Administrador extends Usuario {
 
     private String Cinemas;
 

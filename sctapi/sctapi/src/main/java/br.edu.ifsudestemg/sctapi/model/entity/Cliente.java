@@ -11,9 +11,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cliente extends Pessoa {
+public class Cliente extends Usuario {
 
 
-    //@ManyToMany
+
 
 }
