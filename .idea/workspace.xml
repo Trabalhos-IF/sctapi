@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7326970-61f9-488d-b7ce-31c6d56589d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
