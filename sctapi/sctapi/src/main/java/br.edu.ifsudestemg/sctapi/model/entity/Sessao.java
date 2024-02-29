@@ -16,9 +16,9 @@ public class Sessao{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date dtExibicao;
-    private Date horarioInic;
-    private float reservaAssentosMeia;
+    //private Date dtExibicao;
+    //private Date horarioInic;
+    //private float reservaAssentosMeia;
 
     //@ManyToOne
     private Sala sala;
