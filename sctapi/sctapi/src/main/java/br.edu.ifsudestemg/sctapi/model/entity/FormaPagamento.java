@@ -1,4 +1,4 @@
-package br.edu.ifsudestemg.sctapi.model.entity
+package br.edu.ifsudestemg.sctapi.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,5 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 
 public class FormaPagamento{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
 }

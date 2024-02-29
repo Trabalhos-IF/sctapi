@@ -1,4 +1,4 @@
-package br.edu.ifsudestemg.sctapi.model.entity
+package br.edu.ifsudestemg.sctapi.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TipoTicket{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
     private Float valor;

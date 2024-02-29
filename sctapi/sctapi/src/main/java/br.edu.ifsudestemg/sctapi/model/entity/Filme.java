@@ -1,4 +1,4 @@
-package br.edu.ifsudestemg.sctapi.model.entity
+package br.edu.ifsudestemg.sctapi.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,16 +12,19 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Filme{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String titulo;
     private String sinopse;
     private String faixaEtaria;
     private String duracao;
 
-    @ManyToOne
+    //@ManyToOne
     private Produtora produtora;
 
-    @ManyToMany
+    //@ManyToMany
     private Categoria categoria;
 
 }

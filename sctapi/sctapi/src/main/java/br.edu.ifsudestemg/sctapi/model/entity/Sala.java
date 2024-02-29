@@ -1,4 +1,4 @@
-package br.edu.ifsudestemg.sctapi.model.entity
+package br.edu.ifsudestemg.sctapi.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,10 +12,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Sala{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String numSala;
     private String numAssentos;
 
-    @ManyToOne
+    //@ManyToOne
     private Cinema cinema;
 }

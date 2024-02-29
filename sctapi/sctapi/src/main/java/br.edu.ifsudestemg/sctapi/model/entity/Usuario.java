@@ -1,4 +1,4 @@
-package br.edu.ifsudestemg.sctapi.model.entity
+package br.edu.ifsudestemg.sctapi.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
-public abstract class Usuário {
+public abstract class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +22,5 @@ public abstract class Usuário {
     private String telefone;
     private boolean admin;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    //@OneToOne(cascade = CascadeType.ALL)
 }

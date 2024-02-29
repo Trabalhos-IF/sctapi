@@ -1,4 +1,4 @@
-package br.edu.ifsudestemg.sctapi.model.entity
+package br.edu.ifsudestemg.sctapi.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,24 +12,27 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Sessao{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private Date dtExibicao;
     private Date horarioInic;
     private float reservaAssentosMeia;
 
-    @ManyToOne
+    //@ManyToOne
     private Sala sala;
 
-    @ManyToOne
+    //@ManyToOne
     private Filme filme;
 
-    @ManyToOne
+    //@ManyToOne
     private Cinema cinema;
 
-    @ManyToOne
+    //@ManyToOne
     private TipoExibicao tipoExibicao;
 
-    @ManyToMany(mappedBy = "sessoes")
-    private List<Turma> tiposTickets;
+    //@ManyToMany(mappedBy = "sessoes")
+    //private List<Turma> tiposTickets;
 
 }

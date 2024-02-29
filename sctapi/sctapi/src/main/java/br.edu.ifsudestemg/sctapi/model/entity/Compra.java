@@ -1,4 +1,4 @@
-package br.edu.ifsudestemg.sctapi.model.entity
+package br.edu.ifsudestemg.sctapi.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,15 +13,18 @@ import java.util.List;
 @AllArgsConstructor
 
 public class Compra{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
 
-    @ManyToOne
+    //@ManyToOne
     private FormaPagamento formaPagamento;
 
-    @ManyToOne
+    //@ManyToOne
     private Cliente cliente;
 
-    @ManyToOne
+    //@ManyToOne
     private Sessao sessao;
 
 }
