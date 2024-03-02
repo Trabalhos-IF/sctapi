@@ -19,8 +19,8 @@ public class Assento{
     private boolean disponivel;
 
     //@ManyToOne
-    private TipoAssento tipoAssento;
+   // private TipoAssento tipoAssento;
 
     //@ManyToOne
-    private Sala sala;
+    //private Sala sala;
 }

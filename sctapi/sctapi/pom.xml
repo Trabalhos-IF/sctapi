@@ -14,7 +14,7 @@
 	<name>sctapi</name>
 	<description>back-end para sistema de compra de tickets</description>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

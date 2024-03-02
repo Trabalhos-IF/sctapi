@@ -19,12 +19,12 @@ public class Compra{
 
 
     //@ManyToOne
-    private FormaPagamento formaPagamento;
+    //private FormaPagamento formaPagamento;
 
     //@ManyToOne
-    private Cliente cliente;
+    //private Cliente cliente;
 
     //@ManyToOne
-    private Sessao sessao;
+    //private Sessao sessao;
 
 }

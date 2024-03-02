@@ -22,9 +22,9 @@ public class Filme{
     private String duracao;
 
     //@ManyToOne
-    private Produtora produtora;
+   // private Produtora produtora;
 
     //@ManyToMany
-    private Categoria categoria;
+    //private Categoria categoria;
 
 }

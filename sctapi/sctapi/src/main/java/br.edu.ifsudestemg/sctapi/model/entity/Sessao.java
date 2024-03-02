@@ -21,16 +21,16 @@ public class Sessao{
     //private float reservaAssentosMeia;
 
     //@ManyToOne
-    private Sala sala;
+    //private Sala sala;
 
     //@ManyToOne
-    private Filme filme;
+    //private Filme filme;
 
     //@ManyToOne
-    private Cinema cinema;
+    //private Cinema cinema;
 
     //@ManyToOne
-    private TipoExibicao tipoExibicao;
+    //private TipoExibicao tipoExibicao;
 
     //@ManyToMany(mappedBy = "sessoes")
     //private List<Turma> tiposTickets;
