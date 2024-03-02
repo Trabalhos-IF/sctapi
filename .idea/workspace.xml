@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7326970-61f9-488d-b7ce-31c6d56589d3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +43,9 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "configurable.group.appearance"
   }
 }]]></component>
@@ -64,7 +72,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-f00315f9" />
+        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-6ca9ab15" />
       </set>
     </attachedChunks>
   </component>
@@ -78,5 +87,13 @@
       <updated>1708803314645</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
 </project>

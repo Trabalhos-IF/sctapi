@@ -1,0 +1,16 @@
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Sessao.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/TipoTicket.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/FormaPagamento.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Compra.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/SctapiApplication.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Cliente.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Assento.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/TipoExibicao.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Usuario.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Filme.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Cinema.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Categoria.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Produtora.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Administrador.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/TipoAssento.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Sala.java

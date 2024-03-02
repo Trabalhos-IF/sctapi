@@ -9,8 +9,8 @@ import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Administrador extends Usuario {
 
 
