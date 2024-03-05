@@ -21,6 +21,4 @@ public abstract class Usuario {
     private String email;
     private String telefone;
     private boolean admin;
-
-    //@OneToOne(cascade = CascadeType.ALL)
 }

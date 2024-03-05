@@ -18,5 +18,6 @@ public class Produtora{
 
     private String nome;
 
-    //@ManyToMany
+    @ManyToOne
+    private Filme filme;
 }

@@ -18,9 +18,6 @@ public class Assento{
     private String nome;
     private boolean disponivel;
 
-    //@ManyToOne
-   // private TipoAssento tipoAssento;
-
-    //@ManyToOne
-    //private Sala sala;
+    @ManyToOne
+    private TipoAssento tipoAssento;
 }

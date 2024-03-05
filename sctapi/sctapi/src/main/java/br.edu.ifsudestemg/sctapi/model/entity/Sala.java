@@ -19,6 +19,8 @@ public class Sala{
     private String numSala;
     private String numAssentos;
 
-    //@ManyToOne
-   // private Cinema cinema;
+    @ManyToOne
+    private Cinema cinema;
+    @ManyToOne
+    private Assento assento;
 }

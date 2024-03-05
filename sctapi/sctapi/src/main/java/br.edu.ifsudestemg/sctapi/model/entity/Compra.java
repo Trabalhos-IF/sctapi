@@ -18,13 +18,13 @@ public class Compra{
     private Long id;
 
 
-    //@ManyToOne
-    //private FormaPagamento formaPagamento;
+    @ManyToOne
+    private FormaPagamento formaPagamento;
 
-    //@ManyToOne
-    //private Cliente cliente;
+    @ManyToOne
+    private Cliente cliente;
 
-    //@ManyToOne
-    //private Sessao sessao;
+    @ManyToOne
+    private Sessao sessao;
 
 }

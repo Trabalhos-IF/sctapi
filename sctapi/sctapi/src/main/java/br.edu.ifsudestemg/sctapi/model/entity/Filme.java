@@ -21,10 +21,10 @@ public class Filme{
     private String faixaEtaria;
     private String duracao;
 
-    //@ManyToOne
-   // private Produtora produtora;
+    @ManyToOne
+    private Produtora produtora;
 
-    //@ManyToMany
-    //private Categoria categoria;
+    @ManyToOne
+    private Categoria categoria;
 
 }

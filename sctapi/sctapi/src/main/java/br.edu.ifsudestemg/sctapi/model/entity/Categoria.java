@@ -18,5 +18,6 @@ public class Categoria {
 
     private String Nome;
 
-    //@ManyToMany
+    @ManyToOne
+    private Filme Filme;
 }

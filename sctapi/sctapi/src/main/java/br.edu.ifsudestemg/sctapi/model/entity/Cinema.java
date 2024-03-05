@@ -22,6 +22,8 @@ public class Cinema{
     private String numSalas;
     private String telefone;
 
-    //@ManyToMany
+    @ManyToOne
+    private Administrador Administrador;
+
 
 }

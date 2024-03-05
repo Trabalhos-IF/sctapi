@@ -16,6 +16,5 @@ public class Administrador extends Usuario {
 
     private String Cinemas;
 
-    //@ManyToMany(mappedBy = "Administradores")
-    //private List<Cinemas> cinemasList;
+    //@ManyToOne
 }

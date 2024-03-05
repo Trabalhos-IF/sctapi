@@ -17,6 +17,4 @@ public class TipoExibicao{
     private Long id;
 
     private String nome;
-
-    //@ManyToMany
 }

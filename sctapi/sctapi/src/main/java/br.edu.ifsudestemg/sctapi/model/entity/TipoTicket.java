@@ -18,6 +18,4 @@ public class TipoTicket{
 
     private String nome;
     private Float valor;
-
-    //@ManyToMany
 }

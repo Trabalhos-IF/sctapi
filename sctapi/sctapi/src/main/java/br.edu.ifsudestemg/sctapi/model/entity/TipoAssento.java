@@ -18,6 +18,4 @@ public class TipoAssento{
 
     private String nome;
 
-    //@ManyToMany
-
 }
