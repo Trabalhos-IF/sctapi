@@ -1,17 +1,11 @@
-package br.edu.ifsudestemg.sctapi.api.dto;
+package br.edu.ifsudestemg.sctapi.model.repository;
 
 import br.edu.ifsudestemg.sctapi.model.entity.FormaPagamento;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class FormaPagamentoDTO {
-    private Long id;
+import java.util.List;
+import java.util.Optional;
 
-    private Long idFormaPagamento;
+public interface FormaPagamentoRepository extends JpaRepository<FormaPagamento, Long> {
+
 }

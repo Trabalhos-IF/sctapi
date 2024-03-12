@@ -1,19 +1,11 @@
-package br.edu.ifsudestemg.sctapi.api.dto;
+package br.edu.ifsudestemg.sctapi.model.repository;
 
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import java.util.List;
+import java.util.Optional;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class TipoTicketDTO {
-    private Long id;
+public interface TipoTicketRepository extends JpaRepository<TipoTicket, Long> {
 
-    private String nome;
-    private Float valor;
 }

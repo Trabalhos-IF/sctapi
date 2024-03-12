@@ -1,23 +1,11 @@
-package br.edu.ifsudestemg.sctapi.api.dto;
+package br.edu.ifsudestemg.sctapi.model.repository;
 
 import br.edu.ifsudestemg.sctapi.model.entity.Filme;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+import java.util.List;
+import java.util.Optional;
 
-public class FilmeDTO {
-    private Long id;
-    private String titulo;
-    private String sinopse;
-    private String faixaEtaria;
-    private String duracao;
+public interface FilmeRepository extends JpaRepository<Filme, Long> {
 
-    private Long idProdutora;
-    private Long idCategoria;
 }

@@ -1,19 +1,8 @@
-package br.edu.ifsudestemg.sctapi.api.dto;
+package br.edu.ifsudestemg.sctapi.model.repository;
 
 import br.edu.ifsudestemg.sctapi.model.entity.Categoria;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class categoriaDTO {
-    private Long id;
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
-    private String Nome;
-
-    private Long idFilme;
 }

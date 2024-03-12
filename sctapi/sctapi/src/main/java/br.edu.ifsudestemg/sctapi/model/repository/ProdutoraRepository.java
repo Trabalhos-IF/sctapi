@@ -1,19 +1,11 @@
-package br.edu.ifsudestemg.sctapi.api.dto;
+package br.edu.ifsudestemg.sctapi.model.repository;
 
 import br.edu.ifsudestemg.sctapi.model.entity.Produtora;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ProdutoraDTO {
-    private Long id;
+import java.util.List;
+import java.util.Optional;
 
-    private String nome;
+public interface ProdutoraRepository extends JpaRepository<Produtora, Long> {
 
-    private Long idFilme;
 }

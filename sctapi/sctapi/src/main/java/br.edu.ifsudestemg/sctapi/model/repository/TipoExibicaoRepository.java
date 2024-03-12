@@ -1,18 +1,11 @@
-package br.edu.ifsudestemg.sctapi.api.dto;
+package br.edu.ifsudestemg.sctapi.model.repository;
 
 import br.edu.ifsudestemg.sctapi.model.entity.TipoExibicao;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import java.util.List;
+import java.util.Optional;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class TipoExibicaoDTO {
-    private Long id;
+public interface TipoExibicaoRepository extends JpaRepository<TipoExibicao, Long> {
 
-    private String nome;
 }
