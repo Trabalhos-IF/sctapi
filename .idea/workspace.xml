@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7326970-61f9-488d-b7ce-31c6d56589d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/AdministradorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/AssentoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/CategoriaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/CinemaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/ClienteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/CompraRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/FilmeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/FormaPagamentoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/ProdutoraRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/SalaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/SessaoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/TipoAssentoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/TipoExibicaoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/TipoTicketRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/exception/RegraNegocioException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/exception/SenhaInvalidaException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
