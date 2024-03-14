@@ -16,4 +16,8 @@ public class AssentoDTO {
     private boolean disponivel;
 
     private Long idTipoAssento;
+
+    public static DisciplinaDTO create(Disciplina disciplina) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(disciplina, DisciplinaDTO.class);
 }

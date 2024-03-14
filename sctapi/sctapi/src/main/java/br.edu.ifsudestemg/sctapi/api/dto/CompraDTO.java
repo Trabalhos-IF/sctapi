@@ -15,4 +15,8 @@ public class CompraDTO {
     private Long idFormaDePagamento;
     private Long idCliente;
     private Long idSessao;
+
+    public static DisciplinaDTO create(Disciplina disciplina) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(disciplina, DisciplinaDTO.class);
 }

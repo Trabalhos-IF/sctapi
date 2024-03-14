@@ -20,4 +20,8 @@ public class FilmeDTO {
 
     private Long idProdutora;
     private Long idCategoria;
+
+    public static DisciplinaDTO create(Disciplina disciplina) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(disciplina, DisciplinaDTO.class);
 }
