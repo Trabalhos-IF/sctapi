@@ -17,7 +17,7 @@ public class TipoTicketDTO {
     private String nome;
     private Float valor;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static TipoTicketDTO create(TipoTicketDTO tipoTicket) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(tipoTicket, TipoTicketDTO.class);
 }

@@ -16,7 +16,7 @@ public class TipoAssentoDTO {
 
     private String nome;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static TipoAssentoDTO create(TipoAssento tipoAssento) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(tipoAssento, TipoAssentoDTO.class);
 }

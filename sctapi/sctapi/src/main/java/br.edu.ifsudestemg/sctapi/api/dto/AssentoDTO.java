@@ -17,7 +17,7 @@ public class AssentoDTO {
 
     private Long idTipoAssento;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static AssentoDTO create(Assento assento) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(assento, AssentoDTO.class);
 }

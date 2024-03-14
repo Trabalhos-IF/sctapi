@@ -19,7 +19,7 @@ public class SalaDTO {
     private Long idCinema;
     private Long idAssento;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static SalaDTO create(Sala sala) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(sala, SalaDTO.class);
 }

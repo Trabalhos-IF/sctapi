@@ -16,7 +16,7 @@ public class TipoExibicaoDTO {
 
     private String nome;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static TipoExibicaoDTO create(TipoExibicao tipoExibicao) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(tipoExibicao, TipoExibicaoDTO.class);
 }

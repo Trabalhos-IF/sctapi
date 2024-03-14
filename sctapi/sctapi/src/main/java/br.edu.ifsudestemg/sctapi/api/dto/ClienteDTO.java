@@ -18,7 +18,7 @@ public class ClienteDTO {
     private String telefone;
     private boolean admin;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static ClienteDTO create(Cliente Cliente) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(Cliente, ClienteDTO.class);
 }

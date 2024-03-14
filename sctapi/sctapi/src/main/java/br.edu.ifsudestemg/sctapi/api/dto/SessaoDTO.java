@@ -28,8 +28,8 @@ public class SessaoDTO {
 
     private Long idTipoTicket;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static SessaoDTO create(Sessao sessao) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(sessao, SessaoDTO.class);
 
 }

@@ -10,14 +10,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class categoriaDTO {
+public class CategoriaDTO {
     private Long id;
 
     private String Nome;
 
     private Long idFilme;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static CategoriaDTO create(Categoria categoria) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(categoria, CategoriaDTO.class);
 }

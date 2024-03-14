@@ -19,8 +19,8 @@ public class CinemaDTO {
     private String telefone;
     private Long idAdministrador;
 
-    public static DisciplinaDTO create(Disciplina disciplina) {
+    public static CinemaDTO create(Cinema cinema) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(disciplina, DisciplinaDTO.class);
+        return modelMapper.map(cinema, CinemaDTO.class);
 
 }
