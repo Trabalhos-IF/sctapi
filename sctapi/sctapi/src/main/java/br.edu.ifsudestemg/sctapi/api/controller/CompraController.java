@@ -1,30 +1,23 @@
-package br.edu.ifsudestemg.sctapi.model.entity;
+package br.edu.ifsudestemg.sctapi.api.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import br.edu.ifsudestemg.sctapi.api.dto.CompraDTO;
 
-import javax.persistence.*;
+import br.edu.ifsudestemg.sctapi.model.entity.Compra;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+public class CompraController {
+    public Compra converter(CompraDTO dto) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(dto, Compra.class);
+    }
 
-public class Compra{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-
-    @ManyToOne
-    private FormaPagamento formaPagamento;
-
-    @ManyToOne
-    private Cliente cliente;
-
-    @ManyToOne
-    private Sessao sessao;
 
 }

@@ -1,23 +1,23 @@
-package br.edu.ifsudestemg.sctapi.model.entity;
+package br.edu.ifsudestemg.sctapi.api.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import br.edu.ifsudestemg.sctapi.api.dto.FormaPagamentoDTO;
 
-import javax.persistence.*;
+import br.edu.ifsudestemg.sctapi.model.entity.FormaPagamento;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 
-public class FormaPagamento{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @OneToOne
-    private Compra compra;
+public class FormaPagamentoController {
+    public FormaPagamento converter(FormaPagamentoDTO dto) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(dto, FormaPagamento.class);
+    }
 
 }

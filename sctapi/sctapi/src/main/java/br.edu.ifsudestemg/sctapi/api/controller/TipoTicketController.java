@@ -1,21 +1,22 @@
-package br.edu.ifsudestemg.sctapi.model.entity;
+package br.edu.ifsudestemg.sctapi.api.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class TipoTicket{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class TipoTicketController {
+    public TipoTicket converter(TipoTicketDTO dto) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(dto, TipoTicket.class);
+    }
 
-    private String nome;
-    private Float valor;
 }

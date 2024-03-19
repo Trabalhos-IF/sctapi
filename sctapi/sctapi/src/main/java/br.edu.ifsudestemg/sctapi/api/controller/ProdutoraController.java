@@ -1,23 +1,22 @@
-package br.edu.ifsudestemg.sctapi.model.entity;
+package br.edu.ifsudestemg.sctapi.api.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import br.edu.ifsudestemg.sctapi.api.dto.ProdutoraDTO;
 
-import javax.persistence.*;
+import br.edu.ifsudestemg.sctapi.model.entity.Produtora;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Produtora{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    private String nome;
-
-    @ManyToOne
-    private Filme filme;
+public class ProdutoraController {
+    public Produtora converter(ProdutoraDTO dto) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(dto, Produtora.class);
+    }
 }

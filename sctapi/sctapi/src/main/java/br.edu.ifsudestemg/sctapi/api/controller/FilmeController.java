@@ -1,30 +1,22 @@
-package br.edu.ifsudestemg.sctapi.model.entity;
+package br.edu.ifsudestemg.sctapi.api.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import br.edu.ifsudestemg.sctapi.api.dto.FilmeDTO;
 
-import javax.persistence.*;
+import br.edu.ifsudestemg.sctapi.model.entity.Filme;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Filme{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    private String titulo;
-    private String sinopse;
-    private String faixaEtaria;
-    private String duracao;
-
-    @ManyToOne
-    private Produtora produtora;
-
-    @ManyToOne
-    private Categoria categoria;
-
+public class FilmeController {
+    public Filme converter(FilmeDTO dto) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(dto, Filme.class);
+    }
 }
