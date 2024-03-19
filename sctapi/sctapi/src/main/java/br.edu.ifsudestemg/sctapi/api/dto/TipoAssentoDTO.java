@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -19,4 +18,5 @@ public class TipoAssentoDTO {
     public static TipoAssentoDTO create(TipoAssento tipoAssento) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(tipoAssento, TipoAssentoDTO.class);
+    }
 }

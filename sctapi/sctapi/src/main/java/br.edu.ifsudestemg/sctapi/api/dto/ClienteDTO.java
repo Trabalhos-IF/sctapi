@@ -4,8 +4,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -21,4 +20,5 @@ public class ClienteDTO {
     public static ClienteDTO create(Cliente Cliente) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(Cliente, ClienteDTO.class);
+    }
 }

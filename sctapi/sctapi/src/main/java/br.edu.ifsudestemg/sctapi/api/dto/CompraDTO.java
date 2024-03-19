@@ -4,8 +4,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.Compra;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -19,4 +18,5 @@ public class CompraDTO {
     public static CompraDTO create(Compra compra) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(compra, CompraDTO.class);
+    }
 }

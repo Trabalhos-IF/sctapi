@@ -4,8 +4,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.Filme;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -24,4 +23,5 @@ public class FilmeDTO {
     public static FilmeDTO create(Filme filme) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(filme, FilmeDTO.class);
+    }
 }

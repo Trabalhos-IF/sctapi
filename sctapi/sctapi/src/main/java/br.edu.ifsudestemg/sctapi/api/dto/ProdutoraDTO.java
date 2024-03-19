@@ -4,8 +4,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.Produtora;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -20,4 +19,5 @@ public class ProdutoraDTO {
     public static ProdutoraDTO create(Produtora Produtora) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(Produtora, ProdutoraDTO.class);
+    }
 }

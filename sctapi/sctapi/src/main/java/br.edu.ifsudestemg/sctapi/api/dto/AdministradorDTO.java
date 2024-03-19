@@ -4,8 +4,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -21,6 +20,5 @@ public class AdministradorDTO {
     public static AdministradorDTO create(Administrador administrador) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(administrador, AdministradorDTO.class);
-
-
+    }
 }

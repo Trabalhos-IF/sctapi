@@ -4,8 +4,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.Assento;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -20,4 +19,5 @@ public class AssentoDTO {
     public static AssentoDTO create(Assento assento) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(assento, AssentoDTO.class);
+    }
 }

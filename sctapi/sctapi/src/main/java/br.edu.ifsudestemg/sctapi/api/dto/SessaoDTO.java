@@ -4,14 +4,13 @@ import br.edu.ifsudestemg.sctapi.model.entity.Sessao;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class SessaoDTO {
+
     private Long id;
 
     //private Date dtExibicao;
@@ -32,4 +31,5 @@ public class SessaoDTO {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(sessao, SessaoDTO.class);
 
+    }
 }

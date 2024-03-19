@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -20,4 +19,5 @@ public class TipoTicketDTO {
     public static TipoTicketDTO create(TipoTicketDTO tipoTicket) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(tipoTicket, TipoTicketDTO.class);
+    }
 }

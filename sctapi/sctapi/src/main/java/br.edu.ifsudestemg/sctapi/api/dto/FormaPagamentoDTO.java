@@ -4,8 +4,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.FormaPagamento;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.modelmapper.ModelMapper;
-//import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -18,4 +17,5 @@ public class FormaPagamentoDTO {
     public static FormaPagamentoDTO create(FormaPagamento formaPagamento) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(formaPagamento, FormaPagamentoDTO.class);
+    }
 }
