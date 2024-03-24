@@ -5,21 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7326970-61f9-488d-b7ce-31c6d56589d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/AdministradorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/AssentoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/CategoriaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/CinemaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/ClienteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/CompraController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/FilmeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/FormaPagamentoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/ProdutoraController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/SalaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/SessaoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/TipoAssentoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/TipoExibicaoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/TipoTicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/AssentoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/ClienteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/CompraService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/FilmeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/SalaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/SessaoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/TipoAssentoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/TipoExibicaoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/TipoTicketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/categoriaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/CategoriaDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/AdministradorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/AdministradorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/AssentoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/CategoriaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/CategoriaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/CinemaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/CinemaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/ClienteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/CompraService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/FilmeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/FormaPagamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/FormaPagamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/ProdutoraService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/ProdutoraService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/SalaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/SessaoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/TipoAssentoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/TipoExibicaoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/service/TipoTicketService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/AdministradorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/AdministradorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/AssentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/AssentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/CategoriaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/CategoriaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/CinemaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/CinemaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/ClienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/ClienteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/CompraService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/CompraService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/FilmeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/FilmeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/FormaPagamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/FormaPagamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/ProdutoraService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/ProdutoraService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/SalaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/SalaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/SessaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/SessaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/TipoAssentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/TipoAssentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/TipoExibicaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/TipoExibicaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/TipoTicketService.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br.edu.ifsudestemg/sctapi/service/service/TipoTicketService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +82,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mathe/OneDrive/Documentos/Code/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller",
+    "last_opened_file_path": "/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
@@ -95,7 +118,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-jbr-17.0.9-f644763e9732-e10f1064" />
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-f00315f9" />
+        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-6ca9ab15" />
       </set>
     </attachedChunks>
   </component>
