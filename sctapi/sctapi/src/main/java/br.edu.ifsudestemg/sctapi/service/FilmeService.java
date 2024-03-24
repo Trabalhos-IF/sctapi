@@ -1,8 +1,8 @@
-package br.edu.ifsudestemg.sctapi.api.service;
+package br.edu.ifsudestemg.sctapi.service;
 
 //import com.example.scaapi.exception.RegraNegocioException;
-import com.example.scaapi.model.entity.*;
-import com.example.scaapi.model.repository.AssentoRepository;
+import br.edu.ifsudestemg.sctapi.model.entity.*;
+import br.edu.ifsudestemg.sctapi.model.repository.FilmeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,21 +11,19 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class AssentoService {
-    private AssentoRepository repository;
+public class FilmeService {
+     private FilmeRepository repository;
 
-    public AssentoService(AssentoRepository repository) {
+    public FilmeService(FilmeRepository repository) {
         this.repository = repository;
     }
 
-    public List<Assento> getAssentos() {
+    public List<Filme> getFilmes() {
         return repository.findAll();
     }
 
-    public Optional<Assento> getAssentoById(Long id) {
+    public Optional<Filme> getFilmeById(Long id) {
         return repository.findById(id);
     }
-
+   
 }
-
-

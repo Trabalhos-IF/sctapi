@@ -1,8 +1,8 @@
-package br.edu.ifsudestemg.sctapi.api.service;
+package br.edu.ifsudestemg.sctapi.service;
 
 //import com.example.scaapi.exception.RegraNegocioException;
-import com.example.scaapi.model.entity.*;
-import com.example.scaapi.model.repository.ClienteRepository;
+import br.edu.ifsudestemg.sctapi.model.entity.*;
+import br.edu.ifsudestemg.sctapi.model.repository.SalaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,18 +11,18 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class ClienteService{
-     private ClienteRepository repository;
+public class SalaService {
+    private SalaRepository repository;
 
-    public ClienteService(ClienteRepository repository) {
+    public SalaService(SalaRepository repository) {
         this.repository = repository;
     }
 
-    public List<Cliente> getClientes() {
+    public List<Sala> getSalas() {
         return repository.findAll();
     }
 
-    public Optional<Cliente> getClienteById(Long id) {
+    public Optional<Sala> getSalaById(Long id) {
         return repository.findById(id);
     }
 }

@@ -1,8 +1,8 @@
-package br.edu.ifsudestemg.sctapi.api.service;
+package br.edu.ifsudestemg.sctapi.service;
 
 //import com.example.scaapi.exception.RegraNegocioException;
-import com.example.scaapi.model.entity.*;
-import com.example.scaapi.model.repository.FormaPagamentoRepository;
+import br.edu.ifsudestemg.sctapi.model.entity.*;
+import br.edu.ifsudestemg.sctapi.model.repository.FormaPagamentoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +18,7 @@ public class FormaPagamentoService {
         this.repository = repository;
     }
 
-    public List<FormaPagamento> getAlunos() {
+    public List<FormaPagamento> getFormasPagamento() {
         return repository.findAll();
     }
 
