@@ -3,6 +3,7 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 import br.edu.ifsudestemg.sctapi.api.dto.AssentoDTO;
 
 import br.edu.ifsudestemg.sctapi.model.entity.Assento;
+import br.edu.ifsudestemg.sctapi.model.entity.TipoAssento;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,15 @@ public class AssentoController {
     public Assento converter(AssentoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(dto, Assento.class);
+        if (dto.getIdTipoAssento() != null) {
+            Optional<TipoAssento> tipoAssento = tipoAssentoService.getTipoAssentoById(dto.getIdTipoAssento());
+            if (!tipoAssento.isPresent()) {
+                Assento.setTipoAssento(null);
+            } else {
+                Assento.setDisciplina(tipoAssento.get());
+            }
+        }
+        return assento;
     }
 
 }
