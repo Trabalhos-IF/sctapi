@@ -11,7 +11,7 @@ import org.modelmapper.ModelMapper;
 @AllArgsConstructor
 public class CompraDTO {
     private Long id;
-    private Long idFormaDePagamento;
+    private Long idFormaPagamento;
     private Long idCliente;
     private Long idSessao;
 

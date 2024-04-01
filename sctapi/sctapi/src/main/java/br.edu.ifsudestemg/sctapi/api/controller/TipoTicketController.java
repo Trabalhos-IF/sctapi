@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@RestController
+@RequestMapping("/api/v1/tipoTickets")
+@RequiredArgsConstructor
 public class TipoTicketController {
     public TipoTicket converter(TipoTicketDTO dto) {
         ModelMapper modelMapper = new ModelMapper();

@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@RestController
+@RequestMapping("/api/v1/administradores")
+@RequiredArgsConstructor
 public class AdministradorController{
     public Administrador converter(AdministradorDTO dto) {
         ModelMapper modelMapper = new ModelMapper();

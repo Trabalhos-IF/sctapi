@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@RestController
+@RequestMapping("/api/v1/tipoExibicao")
+@RequiredArgsConstructor
 public class TipoExibicaoController {
     public TipoExibicao converter(TipoExibicaoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();

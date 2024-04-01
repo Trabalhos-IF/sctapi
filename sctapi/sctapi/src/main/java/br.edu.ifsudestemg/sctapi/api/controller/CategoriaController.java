@@ -13,7 +13,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
+@RestController
+@RequestMapping("/api/v1/categorias")
+@RequiredArgsConstructor
 public class CategoriaController {
     public Categoria converter(CategoriaDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
