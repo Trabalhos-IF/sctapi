@@ -2,6 +2,9 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 
 import br.edu.ifsudestemg.sctapi.api.dto.AssentoDTO;
 
+import br.edu.ifsudestemg.sctapi.api.dto.TipoAssentoDTO;
+import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.AssentoService;
 import br.edu.ifsudestemg.sctapi.service.TipoAssentoService;
 
@@ -22,6 +25,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AssentoController {
     private final TipoAssentoService tipoAssentoService;
+    private final AssentoService service;
 
     public Assento converter(AssentoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
@@ -36,6 +40,21 @@ public class AssentoController {
             }
         }
         return assento;
+    }
+
+    @GetMapping()
+    public ResponseEntity get() {
+        List<Assento> assentos = service.getAssentos();
+        return ResponseEntity.ok(assentos.stream().map(AssentoDTO::create).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity get(@PathVariable("id") Long id) {
+        Optional<Assento> assento = service.getAssentoById(id);
+        if (!assento.isPresent()) {
+            return new ResponseEntity("Tipo de Assento não encontrado", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(assento.map(AssentoDTO::create));
     }
 
 }

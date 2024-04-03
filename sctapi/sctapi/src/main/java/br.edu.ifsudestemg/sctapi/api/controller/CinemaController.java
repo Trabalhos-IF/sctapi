@@ -2,9 +2,11 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 
 import br.edu.ifsudestemg.sctapi.api.dto.CinemaDTO;
 
+import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
 import br.edu.ifsudestemg.sctapi.model.entity.Cinema;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 
+import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import  br.edu.ifsudestemg.sctapi.service.CinemaService;
 import  br.edu.ifsudestemg.sctapi.service.AdministradorService;
 
@@ -39,5 +41,20 @@ public class CinemaController {
             }
         }
         return cinema;
+    }
+
+    @GetMapping()
+    public ResponseEntity get() {
+        List<Cinema> cinemas = service.getCinemas();
+        return ResponseEntity.ok(cinemas.stream().map(CinemaDTO::create).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity get(@PathVariable("id") Long id) {
+        Optional<Cinema> cinema = service.getCinemaById(id);
+        if (!cinema.isPresent()) {
+            return new ResponseEntity("Cinema não encontrado", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(cinema.map(CinemaDTO::create));
     }
 }

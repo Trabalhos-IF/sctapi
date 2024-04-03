@@ -12,7 +12,6 @@ import org.modelmapper.ModelMapper;
 @AllArgsConstructor
 public class TipoTicketDTO {
     private Long id;
-
     private String nome;
     private Float valor;
 

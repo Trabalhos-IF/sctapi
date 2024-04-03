@@ -2,6 +2,7 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 
 import br.edu.ifsudestemg.sctapi.api.dto.FilmeDTO;
 
+import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
 import br.edu.ifsudestemg.sctapi.model.entity.*;
 
 import br.edu.ifsudestemg.sctapi.service.*;
@@ -39,5 +40,20 @@ public class FilmeController {
             categoria.ifPresent(filme::setCategoria);
         }
         return filme;
+    }
+
+    @GetMapping()
+    public ResponseEntity get() {
+        List<Filme> filmes = service.getFilmes();
+        return ResponseEntity.ok(filmes.stream().map(FilmeDTO::create).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity get(@PathVariable("id") Long id) {
+        Optional<Filme> filme = service.getFilmeById(id);
+        if (!filme.isPresent()) {
+            return new ResponseEntity("Filme não encontrado", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(filme.map(FilmeDTO::create));
     }
 }

@@ -3,6 +3,7 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 import br.edu.ifsudestemg.sctapi.api.dto.CategoriaDTO;
 
 import br.edu.ifsudestemg.sctapi.model.entity.Categoria;
+import br.edu.ifsudestemg.sctapi.service.CategoriaService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -17,9 +18,26 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/v1/categorias")
 @RequiredArgsConstructor
 public class CategoriaController {
+
+    private final CategoriaService service;
     public Categoria converter(CategoriaDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(dto, Categoria.class);
+    }
+
+    @GetMapping()
+    public ResponseEntity get() {
+        List<Categoria> categoria = service.getCategorias();
+        return ResponseEntity.ok(categoria.stream().map(CategoriaDTO::create).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity get(@PathVariable("id") Long id) {
+        Optional<Categoria> categoria = service.getCategoriaById(id);
+        if (!categoria.isPresent()) {
+            return new ResponseEntity("Categoria não encontrada", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(categoria.map(CategoriaDTO::create));
     }
 
 }

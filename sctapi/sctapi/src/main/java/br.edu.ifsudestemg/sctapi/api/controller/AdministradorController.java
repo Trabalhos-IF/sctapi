@@ -2,7 +2,10 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 
 import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 
+import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
+import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
+import br.edu.ifsudestemg.sctapi.service.AdministradorService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -17,9 +20,26 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/v1/administradores")
 @RequiredArgsConstructor
 public class AdministradorController{
+
+    private final AdministradorService service;
     public Administrador converter(AdministradorDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(dto, Administrador.class);
+    }
+
+    @GetMapping()
+    public ResponseEntity get() {
+        List<Administrador> administradores = service.getAdministradores();
+        return ResponseEntity.ok(administradores.stream().map(AdministradorDTO::create).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity get(@PathVariable("id") Long id) {
+        Optional<Administrador> administrador = service.getAdministradorById(id);
+        if (!administrador.isPresent()) {
+            return new ResponseEntity("Administrador não encontrado", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(administrador.map(AdministradorDTO::create));
     }
 
 }
