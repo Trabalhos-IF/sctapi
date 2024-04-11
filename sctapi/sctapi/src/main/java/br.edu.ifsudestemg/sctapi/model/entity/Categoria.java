@@ -17,7 +17,4 @@ public class Categoria {
     private Long id;
 
     private String Nome;
-
-    @ManyToOne
-    private Filme Filme;
 }
