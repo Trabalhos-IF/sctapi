@@ -2,8 +2,11 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 
 import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 
+import br.edu.ifsudestemg.sctapi.api.dto.CinemaDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
+import br.edu.ifsudestemg.sctapi.model.entity.Cinema;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.AdministradorService;
 import lombok.RequiredArgsConstructor;
@@ -40,6 +43,17 @@ public class AdministradorController{
             return new ResponseEntity("Administrador não encontrado", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(administrador.map(AdministradorDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(AdministradorDTO dto) {
+        try {
+            Administrador administrador = converter(dto);
+            administrador = service.salvar(administrador);
+            return new ResponseEntity(administrador, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 }

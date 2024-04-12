@@ -2,6 +2,7 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 
 import br.edu.ifsudestemg.sctapi.api.dto.CinemaDTO;
 
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
 import br.edu.ifsudestemg.sctapi.model.entity.Cinema;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
@@ -56,5 +57,16 @@ public class CinemaController {
             return new ResponseEntity("Cinema não encontrado", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(cinema.map(CinemaDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(CinemaDTO dto) {
+        try {
+            Cinema cinema = converter(dto);
+            cinema = service.salvar(cinema);
+            return new ResponseEntity(cinema, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }
