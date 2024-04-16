@@ -1,8 +1,11 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.ClienteDTO;
 
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.Cliente;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.ClienteService;
@@ -42,6 +45,17 @@ public class ClienteController{
             return new ResponseEntity("Cliente não encontrado", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(cliente.map(ClienteDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(ClienteDTO dto) {
+        try {
+            Cliente cliente = converter(dto);
+            cliente = service.salvar(cliente);
+            return new ResponseEntity(cliente, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 

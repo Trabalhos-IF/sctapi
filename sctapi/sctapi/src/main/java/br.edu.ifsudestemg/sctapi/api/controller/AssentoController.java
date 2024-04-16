@@ -63,9 +63,9 @@ public class AssentoController {
     @PostMapping()
     public ResponseEntity post(AssentoDTO dto) {
         try {
-            Administrador administrador = converter(dto);
-            administrador = service.salvar(administrador);
-            return new ResponseEntity(administrador, HttpStatus.CREATED);
+            Assento assento = converter(dto);
+            assento = service.salvar(assento);
+            return new ResponseEntity(assento, HttpStatus.CREATED);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

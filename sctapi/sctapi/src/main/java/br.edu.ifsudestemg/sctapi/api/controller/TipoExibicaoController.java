@@ -1,7 +1,10 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.TipoExibicaoDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoExibicao;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.TipoExibicaoService;
@@ -40,5 +43,16 @@ public class TipoExibicaoController {
             return new ResponseEntity("Tipo de Exibição não encontrado", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(tipoExibicao.map(TipoExibicaoDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(TipoExibicaoDTO dto) {
+        try {
+            TipoExibicao tipoExibicao = converter(dto);
+            tipoExibicao = service.salvar(tipoExibicao);
+            return new ResponseEntity(tipoExibicao, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

@@ -1,7 +1,10 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.CategoriaDTO;
 
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.Categoria;
 import br.edu.ifsudestemg.sctapi.service.CategoriaService;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +41,17 @@ public class CategoriaController {
             return new ResponseEntity("Categoria não encontrada", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(categoria.map(CategoriaDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(CategoriaDTO dto) {
+        try {
+            Categoria categoria = converter(dto);
+            categoria = service.salvar(categoria);
+            return new ResponseEntity(categoria, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 }

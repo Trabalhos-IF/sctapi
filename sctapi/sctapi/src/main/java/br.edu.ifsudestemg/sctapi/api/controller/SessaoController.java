@@ -1,8 +1,11 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.SessaoDTO;
 
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.Sessao;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.SessaoService;
@@ -41,5 +44,16 @@ public class SessaoController {
             return new ResponseEntity("Sessão não encontrada", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(sessao.map(SessaoDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(SessaoDTO dto) {
+        try {
+            Sessao sessao = converter(dto);
+            sessao = service.salvar(sessao);
+            return new ResponseEntity(sessao, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

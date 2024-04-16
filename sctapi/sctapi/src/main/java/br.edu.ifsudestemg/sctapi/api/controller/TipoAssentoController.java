@@ -1,8 +1,11 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.TipoAssentoDTO;
 
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoAssento;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.TipoAssentoService;
@@ -42,5 +45,16 @@ public class TipoAssentoController {
             return new ResponseEntity("Tipo de assento não encontrado", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(tipoAssento.map(TipoAssentoDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(TipoAssentoDTO dto) {
+        try {
+            TipoAssento tipoAssento = converter(dto);
+            tipoAssento = service.salvar(tipoAssento);
+            return new ResponseEntity(tipoAssento, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

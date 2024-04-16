@@ -1,8 +1,10 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.CompraDTO;
 
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.*;
 
 import br.edu.ifsudestemg.sctapi.service.*;
@@ -76,5 +78,16 @@ public class CompraController {
             return new ResponseEntity("Compra não encontrado", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(compra.map(CompraDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(CompraDTO dto) {
+        try {
+            Compra compra = converter(dto);
+            compra = service.salvar(compra);
+            return new ResponseEntity(compra, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

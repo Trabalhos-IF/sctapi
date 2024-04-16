@@ -1,6 +1,7 @@
 package br.edu.ifsudestemg.sctapi.service;
 
 //import com.example.scaapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.*;
 import br.edu.ifsudestemg.sctapi.model.repository.TipoAssentoRepository;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,22 @@ public class TipoAssentoService {
 
     public Optional<TipoAssento> getTipoAssentoById(Long id) {
         return repository.findById(id);
+    }
+
+    @Transactional
+    public TipoAssento salvar(TipoAssento tipoAssento) {
+        validar(tipoAssento);
+        return repository.save(tipoAssento);
+    }
+
+
+    public void validar(TipoAssento tipoAssento) {
+        if (tipoAssento.getNome() == null || tipoAssento.getNome().trim().equals("")) {
+            throw new RegraNegocioException("Nome inválido");
+        }
+        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+        //throw new RegraNegocioException("Curso inválido");
+        //}
     }
    
 

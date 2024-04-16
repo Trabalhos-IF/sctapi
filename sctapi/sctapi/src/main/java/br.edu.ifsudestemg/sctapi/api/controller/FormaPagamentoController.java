@@ -1,8 +1,11 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.FormaPagamentoDTO;
 
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.FormaPagamento;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.FormaPagamentoService;
@@ -41,6 +44,17 @@ public class FormaPagamentoController {
             return new ResponseEntity("Forma de pagamento não encontrada", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(formaPagamento.map(FormaPagamentoDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(FormaPagamentoDTO dto) {
+        try {
+            FormaPagamento formaPagamento = converter(dto);
+            formaPagamento = service.salvar(formaPagamento);
+            return new ResponseEntity(formaPagamento, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 }

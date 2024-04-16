@@ -1,8 +1,11 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.SalaDTO;
 
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.Sala;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.SalaService;
@@ -41,5 +44,16 @@ public class SalaController {
             return new ResponseEntity("Tipo de Ticket não encontrado", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(sala.map(SalaDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(SalaDTO dto) {
+        try {
+            Sala sala = converter(dto);
+            sala = service.salvar(sala);
+            return new ResponseEntity(sala, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

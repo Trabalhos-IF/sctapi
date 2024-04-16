@@ -1,8 +1,11 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.CategoriaDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.ProdutoraDTO;
 
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.Categoria;
 import br.edu.ifsudestemg.sctapi.model.entity.Produtora;
 import br.edu.ifsudestemg.sctapi.service.ProdutoraService;
@@ -40,5 +43,16 @@ public class ProdutoraController {
             return new ResponseEntity("Produtora não encontrada", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(produtora.map(ProdutoraDTO::create));
+    }
+
+    @PostMapping()
+    public ResponseEntity post(ProdutoraDTO dto) {
+        try {
+            Produtora produtora = converter(dto);
+            produtora = service.salvar(produtora);
+            return new ResponseEntity(produtora, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }
