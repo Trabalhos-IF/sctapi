@@ -26,4 +26,20 @@ public class TipoTicketService {
         return repository.findById(id);
     }
 
+    @Transactional
+    public TipoTicket salvar(TipoTicket tipoTicket) {
+        validar(tipoTicket);
+        return repository.save(tipoTicket);
+    }
+
+    public void validar(TipoTicket tipoTicket) {
+        Set<ConstraintViolation<TipoTicket>> violations = validator.validate(tipoTicket);
+        if (!violations.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            for (ConstraintViolation<TipoTicket> violation : violations) {
+                sb.append(violation.getMessage()).append("\n");
+            }
+            throw new RegraNegocioException(sb.toString());
+        }
+    }
 }
