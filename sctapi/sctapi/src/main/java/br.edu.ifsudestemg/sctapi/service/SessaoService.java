@@ -35,9 +35,9 @@ public class SessaoService {
 
 
     public void validar(Sessao sessao) {
-        if (sessao.getId() == null || sessao.getId().trim().equals("")) {
-            throw new RegraNegocioException("Nome inválido");
-        }
+//        if (sessao.getId() == null || sessao.getId().trim().equals("")) {
+//            throw new RegraNegocioException("Nome inválido");
+//        }
         //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
         //throw new RegraNegocioException("Curso inválido");
         //}

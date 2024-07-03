@@ -44,7 +44,7 @@ public class CategoriaController {
     }
 
     @PostMapping()
-    public ResponseEntity post(CategoriaDTO dto) {
+    public ResponseEntity post(@RequestBody CategoriaDTO dto) {
         try {
             Categoria categoria = converter(dto);
             categoria = service.salvar(categoria);

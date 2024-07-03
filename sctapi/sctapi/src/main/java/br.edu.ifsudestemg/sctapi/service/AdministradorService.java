@@ -39,8 +39,8 @@ public class AdministradorService{
         if (administrador.getNome() == null || administrador.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        //throw new RegraNegocioException("Curso inválido");
-        //}
+//        if (administrador.getCurso() == null || administrador.getCurso().getId() == null || administrador.getCurso().getId() == 0) {
+//        throw new RegraNegocioException("Curso inválido");
+//        }
     }
 }

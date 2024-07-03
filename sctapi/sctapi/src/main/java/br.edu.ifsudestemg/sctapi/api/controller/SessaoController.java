@@ -47,7 +47,7 @@ public class SessaoController {
     }
 
     @PostMapping()
-    public ResponseEntity post(SessaoDTO dto) {
+    public ResponseEntity post(@RequestBody SessaoDTO dto) {
         try {
             Sessao sessao = converter(dto);
             sessao = service.salvar(sessao);

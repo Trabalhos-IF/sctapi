@@ -60,7 +60,7 @@ public class FilmeController {
     }
 
     @PostMapping()
-    public ResponseEntity post(FilmeDTO dto) {
+    public ResponseEntity post(@RequestBody FilmeDTO dto) {
         try {
             Filme filme = converter(dto);
             filme = service.salvar(filme);

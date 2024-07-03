@@ -46,7 +46,7 @@ public class TipoExibicaoController {
     }
 
     @PostMapping()
-    public ResponseEntity post(TipoExibicaoDTO dto) {
+    public ResponseEntity post(@RequestBody TipoExibicaoDTO dto) {
         try {
             TipoExibicao tipoExibicao = converter(dto);
             tipoExibicao = service.salvar(tipoExibicao);

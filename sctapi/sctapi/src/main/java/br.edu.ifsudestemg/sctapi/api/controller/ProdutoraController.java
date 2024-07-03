@@ -46,7 +46,7 @@ public class ProdutoraController {
     }
 
     @PostMapping()
-    public ResponseEntity post(ProdutoraDTO dto) {
+    public ResponseEntity post(@RequestBody ProdutoraDTO dto) {
         try {
             Produtora produtora = converter(dto);
             produtora = service.salvar(produtora);

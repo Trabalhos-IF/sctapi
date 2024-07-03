@@ -1,5 +1,6 @@
 package br.edu.ifsudestemg.sctapi.api.dto;
 
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoAssento;
 import lombok.AllArgsConstructor;
 import lombok.Data;

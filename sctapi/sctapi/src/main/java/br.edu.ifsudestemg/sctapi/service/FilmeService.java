@@ -35,9 +35,9 @@ public class FilmeService {
 
 
     public void validar(Filme filme) {
-        if (filme.getNome() == null || filme.getNome().trim().equals("")) {
-            throw new RegraNegocioException("Nome inválido");
-        }
+//        if (filme.getNome() == null || filme.getNome().trim().equals("")) {
+//            throw new RegraNegocioException("Nome inválido");
+//        }
         //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
         //throw new RegraNegocioException("Curso inválido");
         //}

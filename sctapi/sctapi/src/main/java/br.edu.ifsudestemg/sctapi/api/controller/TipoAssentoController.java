@@ -48,9 +48,14 @@ public class TipoAssentoController {
     }
 
     @PostMapping()
-    public ResponseEntity post(TipoAssentoDTO dto) {
+    public ResponseEntity post(@RequestBody TipoAssentoDTO dto) {
+
         try {
             TipoAssento tipoAssento = converter(dto);
+            if(dto != null){
+                System.out.println("DTO: " + dto);
+                System.out.println("TipoAssento: " + tipoAssento);
+            }
             tipoAssento = service.salvar(tipoAssento);
             return new ResponseEntity(tipoAssento, HttpStatus.CREATED);
         } catch (RegraNegocioException e) {

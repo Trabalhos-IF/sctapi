@@ -61,7 +61,7 @@ public class AssentoController {
     }
 
     @PostMapping()
-    public ResponseEntity post(AssentoDTO dto) {
+    public ResponseEntity post(@RequestBody AssentoDTO dto) {
         try {
             Assento assento = converter(dto);
             assento = service.salvar(assento);

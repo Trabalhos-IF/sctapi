@@ -46,7 +46,7 @@ public class AdministradorController{
     }
 
     @PostMapping()
-    public ResponseEntity post(AdministradorDTO dto) {
+    public ResponseEntity post(@RequestBody AdministradorDTO dto) {
         try {
             Administrador administrador = converter(dto);
             administrador = service.salvar(administrador);

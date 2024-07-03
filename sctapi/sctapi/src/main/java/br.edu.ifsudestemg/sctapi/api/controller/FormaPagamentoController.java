@@ -47,7 +47,7 @@ public class FormaPagamentoController {
     }
 
     @PostMapping()
-    public ResponseEntity post(FormaPagamentoDTO dto) {
+    public ResponseEntity post(@RequestBody FormaPagamentoDTO dto) {
         try {
             FormaPagamento formaPagamento = converter(dto);
             formaPagamento = service.salvar(formaPagamento);

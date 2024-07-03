@@ -81,7 +81,7 @@ public class CompraController {
     }
 
     @PostMapping()
-    public ResponseEntity post(CompraDTO dto) {
+    public ResponseEntity post(@RequestBody CompraDTO dto) {
         try {
             Compra compra = converter(dto);
             compra = service.salvar(compra);

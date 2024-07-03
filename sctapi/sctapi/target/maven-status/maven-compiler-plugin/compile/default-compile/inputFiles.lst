@@ -42,6 +42,7 @@
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/SalaController.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/TipoTicketController.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/CinemaRepository.java
+/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/CategoriaDTO.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/SessaoController.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Administrador.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/TipoAssento.java
@@ -68,7 +69,6 @@
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/FilmeRepository.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/ClienteDTO.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/SessaoDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/categoriaDTO.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/TipoAssentoDTO.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/ClienteRepository.java
 /home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/TipoExibicaoRepository.java
