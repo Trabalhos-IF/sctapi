@@ -24,7 +24,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/assento")
+@RequestMapping("/api/v1/assentos")
 @RequiredArgsConstructor
 public class AssentoController {
     private final TipoAssentoService tipoAssentoService;
@@ -66,6 +66,35 @@ public class AssentoController {
             Assento assento = converter(dto);
             assento = service.salvar(assento);
             return new ResponseEntity(assento, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody AssentoDTO dto) {
+        if (!service.getAssentoById(id).isPresent()) {
+            return new ResponseEntity("Assento não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Assento assento = converter(dto);
+            assento.setId(id);
+            assento = service.salvar(assento);
+            return ResponseEntity.ok(assento);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Assento> assento = service.getAssentoById(id);
+        if (!assento.isPresent()) {
+            return new ResponseEntity("Assento não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(assento.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

@@ -20,7 +20,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/formaPagamento")
+@RequestMapping("/api/v1/formaPagamentos")
 @RequiredArgsConstructor
 public class FormaPagamentoController {
 
@@ -52,6 +52,35 @@ public class FormaPagamentoController {
             FormaPagamento formaPagamento = converter(dto);
             formaPagamento = service.salvar(formaPagamento);
             return new ResponseEntity(formaPagamento, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody FormaPagamentoDTO dto) {
+        if (!service.getFormaPagamentoById(id).isPresent()) {
+            return new ResponseEntity("FormaPagamento não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            FormaPagamento formaPagamento = converter(dto);
+            formaPagamento.setId(id);
+            formaPagamento = service.salvar(formaPagamento);
+            return ResponseEntity.ok(formaPagamento);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<FormaPagamento> formaPagamento = service.getFormaPagamentoById(id);
+        if (!formaPagamento.isPresent()) {
+            return new ResponseEntity("FormaPagamento não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(formaPagamento.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

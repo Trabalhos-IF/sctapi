@@ -19,7 +19,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/tipoExibicao")
+@RequestMapping("/api/v1/tiposExibicaos")
 @RequiredArgsConstructor
 public class TipoExibicaoController {
 
@@ -51,6 +51,35 @@ public class TipoExibicaoController {
             TipoExibicao tipoExibicao = converter(dto);
             tipoExibicao = service.salvar(tipoExibicao);
             return new ResponseEntity(tipoExibicao, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoExibicaoDTO dto) {
+        if (!service.getTipoExibicaoById(id).isPresent()) {
+            return new ResponseEntity("TipoExibicao não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            TipoExibicao tipoExibicao = converter(dto);
+            tipoExibicao.setId(id);
+            tipoExibicao = service.salvar(tipoExibicao);
+            return ResponseEntity.ok(tipoExibicao);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<TipoExibicao> tipoExibicao = service.getTipoExibicaoById(id);
+        if (!tipoExibicao.isPresent()) {
+            return new ResponseEntity("TipoExibicao não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(tipoExibicao.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

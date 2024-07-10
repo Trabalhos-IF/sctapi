@@ -33,14 +33,19 @@ public class TipoAssentoService {
         return repository.save(tipoAssento);
     }
 
+    @Transactional
+    public void excluir(TipoAssento tipoAssento) {
+        Objects.requireNonNull(tipoAssento.getId());
+        repository.delete(tipoAssento);
+    }
 
     public void validar(TipoAssento tipoAssento) {
         if (tipoAssento.getNome() == null || tipoAssento.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        //throw new RegraNegocioException("Curso inválido");
-        //}
+        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+        throw new RegraNegocioException("Curso inválido");
+        }
     }
    
 

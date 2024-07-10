@@ -1,74 +1,74 @@
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/TipoTicketService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Compra.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/TipoAssentoController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/SalaService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/TipoExibicao.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/TipoAssentoRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/CinemaService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/ProdutoraService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/FilmeController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/CompraController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/ClienteService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Cinema.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/CinemaController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/SalaRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/CompraDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/FilmeService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/AssentoRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/TipoTicket.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/FormaPagamento.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/TipoExibicaoDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/CompraService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/TipoTicketRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Usuario.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/TipoAssentoService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/TipoExibicaoService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/AssentoService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/ProdutoraController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/AdministradorRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/exception/RegraNegocioException.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Filme.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/ClienteController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Produtora.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/exception/SenhaInvalidaException.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/SalaDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Sala.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/ProdutoraRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/FilmeDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/CategoriaController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/AssentoController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/SctapiApplication.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Assento.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/SalaController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/TipoTicketController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/CinemaRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/CategoriaDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/SessaoController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Administrador.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/TipoAssento.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/AdministradorController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/FormaPagamentoRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/FormaPagamentoService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/CategoriaService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/SessaoRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/AdministradorService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Sessao.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/CinemaDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/CategoriaRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/SessaoService.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Cliente.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/CompraRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/FormaPagamentoDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/TipoTicketDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/ProdutoraDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/TipoExibicaoController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/AssentoDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/AdministradorDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/controller/FormaPagamentoController.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Categoria.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/FilmeRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/ClienteDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/SessaoDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/api/dto/TipoAssentoDTO.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/ClienteRepository.java
-/home/soares/Desktop/BSI/4 Periodo/LP3/sctapi/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/TipoExibicaoRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\TipoTicketDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\ClienteDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\CategoriaController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\CategoriaDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\FormaPagamentoRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\CinemaController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\ProdutoraDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\TipoAssentoDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\CinemaDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\CompraService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\CinemaRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\AdministradorController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\AssentoController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\ClienteController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\TipoTicketController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\FormaPagamentoController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\TipoTicketRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\CategoriaService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\FormaPagamentoService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\FilmeService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\ProdutoraController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\FilmeRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\ClienteService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\SalaRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\SessaoRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\AssentoRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\TipoExibicaoService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\SessaoController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\FormaPagamentoDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\CompraController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\CompraRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\AssentoService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\TipoExibicaoController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\TipoExibicao.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\FilmeDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\SessaoDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\SessaoService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\SctapiApplication.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\FormaPagamento.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\TipoAssento.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\CinemaService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\AdministradorService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Administrador.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\SalaDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Assento.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\CategoriaRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\AdministradorRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\TipoExibicaoRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Sessao.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\SalaController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Categoria.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\AdministradorDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\FilmeController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\TipoAssentoRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Sala.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\exception\RegraNegocioException.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\exception\SenhaInvalidaException.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Produtora.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\SalaService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Usuario.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Cinema.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\TipoExibicaoDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\ClienteRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Compra.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\CompraDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\TipoTicket.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\TipoAssentoController.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\ProdutoraRepository.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Filme.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\AssentoDTO.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Cliente.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\TipoAssentoService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\TipoTicketService.java
+C:\Users\mathe\OneDrive\Documentos\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\ProdutoraService.java

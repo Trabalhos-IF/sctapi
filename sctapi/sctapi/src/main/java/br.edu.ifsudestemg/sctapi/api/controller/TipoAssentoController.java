@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/tipoAssento")
+@RequestMapping("/api/v1/tiposAssentos")
 @RequiredArgsConstructor
 public class TipoAssentoController {
 
@@ -58,6 +58,34 @@ public class TipoAssentoController {
             }
             tipoAssento = service.salvar(tipoAssento);
             return new ResponseEntity(tipoAssento, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoAssentoDTO dto) {
+        if (!service.getTipoAssentoById(id).isPresent()) {
+            return new ResponseEntity("TipoAssento não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            TipoAssento tipoAssento = converter(dto);
+            tipoAssento.setId(id);
+            tipoAssento = service.salvar(tipoAssento);
+            return ResponseEntity.ok(tipoAssento);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<TipoAssento> tipoAssento = service.getTipoAssentoById(id);
+        if (!tipoAssento.isPresent()) {
+            return new ResponseEntity("TipoAssento não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(tipoAssento.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

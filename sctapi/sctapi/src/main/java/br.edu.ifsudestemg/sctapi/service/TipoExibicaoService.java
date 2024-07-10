@@ -33,13 +33,18 @@ public class TipoExibicaoService {
         return repository.save(tipoExibicao);
     }
 
+    @Transactional
+    public void excluir(TipoExibicao tipoExibicao) {
+        Objects.requireNonNull(tipoExibicao.getId());
+        repository.delete(tipoExibicao);
+    }
 
     public void validar(TipoExibicao tipoExibicao) {
         if (tipoExibicao.getNome() == null || tipoExibicao.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        //throw new RegraNegocioException("Curso inválido");
-        //}
+        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+        throw new RegraNegocioException("Curso inválido");
+        }
     }
 }

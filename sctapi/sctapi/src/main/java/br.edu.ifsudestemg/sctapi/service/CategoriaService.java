@@ -33,14 +33,19 @@ public class CategoriaService {
         return repository.save(categoria);
     }
 
+    @Transactional
+    public void excluir(Categoria categoria) {
+        Objects.requireNonNull(categoria.getId());
+        repository.delete(categoria);
+    }
 
     public void validar(Categoria categoria) {
         if (categoria.getNome() == null || categoria.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        //throw new RegraNegocioException("Curso inválido");
-        //}
+        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+        throw new RegraNegocioException("Curso inválido");
+        }
     }
 
 

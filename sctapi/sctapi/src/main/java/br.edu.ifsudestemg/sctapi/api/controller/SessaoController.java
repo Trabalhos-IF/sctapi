@@ -56,4 +56,33 @@ public class SessaoController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody SessaoDTO dto) {
+        if (!service.getSessaoById(id).isPresent()) {
+            return new ResponseEntity("Sessao não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Sessao sessao = converter(dto);
+            sessao.setId(id);
+            sessao = service.salvar(sessao);
+            return ResponseEntity.ok(sessao);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Sessao> sessao = service.getSessaoById(id);
+        if (!sessao.isPresent()) {
+            return new ResponseEntity("Sessao não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(sessao.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

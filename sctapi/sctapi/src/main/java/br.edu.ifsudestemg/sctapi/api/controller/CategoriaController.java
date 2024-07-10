@@ -54,4 +54,33 @@ public class CategoriaController {
         }
     }
 
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CategoriaDTO dto) {
+        if (!service.getCategoriaById(id).isPresent()) {
+            return new ResponseEntity("Categoria não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Categoria categoria = converter(dto);
+            categoria.setId(id);
+            categoria = service.salvar(categoria);
+            return ResponseEntity.ok(categoria);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Categoria> categoria = service.getCategoriaById(id);
+        if (!categoria.isPresent()) {
+            return new ResponseEntity("Categoria não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(categoria.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }

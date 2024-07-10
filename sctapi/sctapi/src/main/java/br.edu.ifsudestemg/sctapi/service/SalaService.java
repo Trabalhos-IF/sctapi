@@ -33,13 +33,18 @@ public class SalaService {
         return repository.save(sala);
     }
 
+    @Transactional
+    public void excluir(Sala sala) {
+        Objects.requireNonNull(sala.getId());
+        repository.delete(sala);
+    }
 
     public void validar(Sala sala) {
         if (sala.getNumSala() == null || sala.getNumSala().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        //throw new RegraNegocioException("Curso inválido");
-        //}
+        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+        throw new RegraNegocioException("Curso inválido");
+        }
     }
 }

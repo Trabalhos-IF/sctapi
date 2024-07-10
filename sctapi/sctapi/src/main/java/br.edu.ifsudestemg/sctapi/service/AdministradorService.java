@@ -34,13 +34,18 @@ public class AdministradorService{
         return repository.save(administrador);
     }
 
+    @Transactional
+    public void excluir(Administrador administrador) {
+        Objects.requireNonNull(administrador.getId());
+        repository.delete(administrador);
+    }
 
     public void validar(Administrador administrador) {
         if (administrador.getNome() == null || administrador.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-//        if (administrador.getCurso() == null || administrador.getCurso().getId() == null || administrador.getCurso().getId() == 0) {
-//        throw new RegraNegocioException("Curso inválido");
-//        }
+        if (administrador.getCurso() == null || administrador.getCurso().getId() == null || administrador.getCurso().getId() == 0) {
+        throw new RegraNegocioException("Curso inválido");
+        }
     }
 }

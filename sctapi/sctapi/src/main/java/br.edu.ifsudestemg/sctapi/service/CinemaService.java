@@ -33,14 +33,19 @@ public class CinemaService {
         return repository.save(cinema);
     }
 
+    @Transactional
+    public void excluir(Cinema cinema) {
+        Objects.requireNonNull(cinema.getId());
+        repository.delete(cinema);
+    }
 
     public void validar(Cinema cinema) {
         if (cinema.getNome() == null || cinema.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-            //throw new RegraNegocioException("Curso inválido");
-        //}
+        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+            throw new RegraNegocioException("Curso inválido");
+        }
     }
 
 

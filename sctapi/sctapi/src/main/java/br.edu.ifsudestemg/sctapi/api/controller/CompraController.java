@@ -90,4 +90,34 @@ public class CompraController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CompraDTO dto) {
+        if (!service.getCompraById(id).isPresent()) {
+            return new ResponseEntity("Compra não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Compra compra = converter(dto);
+            compra.setId(id);
+            compra = service.salvar(compra);
+            return ResponseEntity.ok(compra);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Compra> compra = service.getCompraById(id);
+        if (!compra.isPresent()) {
+            return new ResponseEntity("Compra não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(compra.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
+

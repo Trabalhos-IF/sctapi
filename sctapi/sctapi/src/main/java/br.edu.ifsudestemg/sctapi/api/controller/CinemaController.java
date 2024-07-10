@@ -1,5 +1,6 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
 
+import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.CinemaDTO;
 
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
@@ -65,6 +66,35 @@ public class CinemaController {
             Cinema cinema = converter(dto);
             cinema = service.salvar(cinema);
             return new ResponseEntity(cinema, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CinemaDTO dto) {
+        if (!service.getCinemaById(id).isPresent()) {
+            return new ResponseEntity("Cinema não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Cinema cinema = converter(dto);
+            cinema.setId(id);
+            cinema = service.salvar(cinema);
+            return ResponseEntity.ok(cinema);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Cinema> cinema = service.getCinemaById(id);
+        if (!cinema.isPresent()) {
+            return new ResponseEntity("Cinema não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(Cinema.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

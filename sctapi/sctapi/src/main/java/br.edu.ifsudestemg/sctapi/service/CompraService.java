@@ -33,14 +33,19 @@ public class CompraService {
         return repository.save(compra);
     }
 
+    @Transactional
+    public void excluir(Compra compra) {
+        Objects.requireNonNull(compra.getId());
+        repository.delete(compra);
+    }
 
     public void validar(Compra compra) {
-//        if (compra.getId() == null || compra.getId().trim().equals("")) {
-//            throw new RegraNegocioException("Nome inválido");
-//        }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        //throw new RegraNegocioException("Curso inválido");
-        //}
+        if (compra.getId() == null || compra.getId().trim().equals("")) {
+            throw new RegraNegocioException("Nome inválido");
+        }
+        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+        throw new RegraNegocioException("Curso inválido");
+        }
     }
 
 }

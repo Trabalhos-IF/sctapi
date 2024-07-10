@@ -33,13 +33,18 @@ public class ProdutoraService {
         return repository.save(produtora);
     }
 
+    @Transactional
+    public void excluir(Produtora produtora) {
+        Objects.requireNonNull(produtora.getId());
+        repository.delete(produtora);
+    }
 
     public void validar(Produtora produtora) {
         if (produtora.getNome() == null || produtora.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        //throw new RegraNegocioException("Curso inválido");
-        //}
+        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+        throw new RegraNegocioException("Curso inválido");
+        }
     }
 }

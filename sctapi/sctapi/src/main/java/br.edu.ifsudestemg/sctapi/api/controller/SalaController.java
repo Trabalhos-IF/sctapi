@@ -56,4 +56,33 @@ public class SalaController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody SalaDTO dto) {
+        if (!service.getSalaById(id).isPresent()) {
+            return new ResponseEntity("Sala não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Sala sala = converter(dto);
+            sala.setId(id);
+            sala = service.salvar(sala);
+            return ResponseEntity.ok(sala);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Sala> sala = service.getSalaById(id);
+        if (!Sala.isPresent()) {
+            return new ResponseEntity("Sala não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(sala.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

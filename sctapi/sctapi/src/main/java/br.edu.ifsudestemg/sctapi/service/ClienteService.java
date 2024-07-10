@@ -33,13 +33,18 @@ public class ClienteService{
         return repository.save(cliente);
     }
 
+    @Transactional
+    public void excluir(Cliente cliente) {
+        Objects.requireNonNull(cliente.getId());
+        repository.delete(cliente);
+    }
 
     public void validar(Cliente cliente) {
         if (cliente.getNome() == null || cliente.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        //if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        //throw new RegraNegocioException("Curso inválido");
-        //}
+        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
+        throw new RegraNegocioException("Curso inválido");
+        }
     }
 }

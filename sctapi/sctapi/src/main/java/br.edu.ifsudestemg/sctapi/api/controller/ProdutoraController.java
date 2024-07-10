@@ -55,4 +55,33 @@ public class ProdutoraController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody ProdutoraDTO dto) {
+        if (!service.getProdutoraById(id).isPresent()) {
+            return new ResponseEntity("Produtora não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Produtora produtora = converter(dto);
+            produtora.setId(id);
+            produtora = service.salvar(produtora);
+            return ResponseEntity.ok(produtora);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Produtora> produtora = service.getProdutoraById(id);
+        if (!produtora.isPresent()) {
+            return new ResponseEntity("Produtora não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(produtora.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

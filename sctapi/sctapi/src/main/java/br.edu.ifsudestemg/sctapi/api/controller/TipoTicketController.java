@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/tipoTickets")
+@RequestMapping("/api/v1/tiposTickets")
 @RequiredArgsConstructor
 public class TipoTicketController {
 
@@ -46,5 +46,34 @@ public class TipoTicketController {
         //}
         //return ResponseEntity.ok(tipoTicket.map(TipoTicketDTO::create));
     //}
+
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoTicketDTO dto) {
+        if (!service.getTipoTicketById(id).isPresent()) {
+            return new ResponseEntity("TipoTicket não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            TipoTicket tipoTicket = converter(dto);
+            tipoTicket.setId(id);
+            tipoTicket = service.salvar(tipoTicket);
+            return ResponseEntity.ok(tipoTicket);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<TipoTicket> tipoTicket = service.getTipoTicketById(id);
+        if (!tipoTicket.isPresent()) {
+            return new ResponseEntity("TipoTicket não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(tipoTicket.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
 }

@@ -69,4 +69,32 @@ public class FilmeController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody FilmeDTO dto) {
+        if (!service.getFilmeById(id).isPresent()) {
+            return new ResponseEntity("Filme não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Filme filme = converter(dto);
+            filme.setId(id);
+            filme = service.salvar(filme);
+            return ResponseEntity.ok(filme);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Filme> filme = service.getFilmeById(id);
+        if (!filme.isPresent()) {
+            return new ResponseEntity("Filme não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(filme.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

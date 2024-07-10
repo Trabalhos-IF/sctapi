@@ -1,6 +1,6 @@
 package br.edu.ifsudestemg.sctapi.service;
 
-//import com.example.scaapi.exception.RegraNegocioException;
+import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.*;
 import br.edu.ifsudestemg.sctapi.model.repository.TipoTicketRepository;
 import org.springframework.stereotype.Service;
@@ -32,16 +32,20 @@ public class TipoTicketService {
         return repository.save(tipoTicket);
     }
 
-    public void validar(TipoTicket tipoTicket) {
-//        Set<ConstraintViolation<TipoTicket>> violations = validator.validate(tipoTicket);
-//        if (!violations.isEmpty()) {
-//            StringBuilder sb = new StringBuilder();
-//            for (ConstraintViolation<TipoTicket> violation : violations) {
-//                sb.append(violation.getMessage()).append("\n");
-//            }
-//            throw new RegraNegocioException(sb.toString());
-//        }
-//    }
+    @Transactional
+    public void excluir(TipoTicket tipoTicket) {
+        Objects.requireNonNull(tipoTicket.getId());
+        repository.delete(tipoTicket);
     }
 
+    public void validar(TipoTicket tipoTicket) {
+        Set<ConstraintViolation<TipoTicket>> violations = validator.validate(tipoTicket);
+        if (!violations.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            for (ConstraintViolation<TipoTicket> violation : violations) {
+                sb.append(violation.getMessage()).append("\n");
+            }
+            throw new RegraNegocioException(sb.toString());
+        }
+    }
 }

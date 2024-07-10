@@ -56,4 +56,31 @@ public class AdministradorController{
         }
     }
 
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody AdministradorDTO dto) {
+        if (!service.getAdministradorById(id).isPresent()) {
+            return new ResponseEntity("Administrador não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            Administrador administrador = converter(dto);
+            administrador.setId(id);
+            administrador = service.salvar(administrador);
+            return ResponseEntity.ok(administrador);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Administrador> administrador = service.getAdministradorById(id);
+        if (!administrador.isPresent()) {
+            return new ResponseEntity("Administrador não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(administrador.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
