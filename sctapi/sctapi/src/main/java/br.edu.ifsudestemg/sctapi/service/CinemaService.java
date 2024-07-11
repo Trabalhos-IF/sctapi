@@ -43,8 +43,11 @@ public class CinemaService {
         if (cinema.getNome() == null || cinema.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-            throw new RegraNegocioException("Curso inválido");
+        if (cinema.getCnpj() == null || cinema.getCnpj().trim().equals("")) {
+            throw new RegraNegocioException("Cnpj inválido");
+        }
+        if (cinema.getNumSalas() == null || cinema.getNumSalas().trim().equals("")) {
+            throw new RegraNegocioException("Número de salas inválido");
         }
     }
 

@@ -44,8 +44,14 @@ public class AdministradorService{
         if (administrador.getNome() == null || administrador.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        if (administrador.getCurso() == null || administrador.getCurso().getId() == null || administrador.getCurso().getId() == 0) {
-        throw new RegraNegocioException("Curso inválido");
+        if (administrador.getCpf() == null || administrador.getCpf().trim().equals("")) {
+            throw new RegraNegocioException("CPF inválido");
+        }
+        if (administrador.getEmail() == null || administrador.getEmail().trim().equals("")) {
+            throw new RegraNegocioException("Email inválido");
+        }
+        if (administrador.getCinemas() == null || administrador.getCinemas().trim().equals("")) {
+            throw new RegraNegocioException("Cinema inválido");
         }
     }
 }

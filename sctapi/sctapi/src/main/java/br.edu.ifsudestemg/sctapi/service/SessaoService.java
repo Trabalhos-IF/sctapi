@@ -40,11 +40,20 @@ public class SessaoService {
     }
 
     public void validar(Sessao sessao) {
-        if (sessao.getId() == null || sessao.getId().trim().equals("")) {
-            throw new RegraNegocioException("Nome inválido");
+        if (sessao.getSala() == null) {
+            throw new RegraNegocioException("Sessão inválido");
         }
-        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        throw new RegraNegocioException("Curso inválido");
+        if (sessao.getFilme() == null) {
+            throw new RegraNegocioException("Filme inválido");
+        }
+        if (sessao.getCinema() == null) {
+            throw new RegraNegocioException("Cinema inválido");
+        }
+        if (sessao.getTipoExibicao() == null) {
+            throw new RegraNegocioException("Tipo de exibição inválido");
+        }
+        if (sessao.getTipoTicket() == null) {
+            throw new RegraNegocioException("Tipo de ticket inválido");
         }
     }
  

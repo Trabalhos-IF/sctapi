@@ -41,10 +41,16 @@ public class SalaService {
 
     public void validar(Sala sala) {
         if (sala.getNumSala() == null || sala.getNumSala().trim().equals("")) {
-            throw new RegraNegocioException("Nome inválido");
+            throw new RegraNegocioException("Número da sala inválido");
         }
-        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        throw new RegraNegocioException("Curso inválido");
+        if (sala.getNumAssentos() == null || sala.getNumAssentos().trim().equals("")) {
+            throw new RegraNegocioException("Número de assento inválido");
+        }
+        if (sala.getCinema() == null ) {
+            throw new RegraNegocioException("Cinema inválido");
+        }
+        if (sala.getAssento() == null ) {
+            throw new RegraNegocioException("Assento inválido");
         }
     }
 }

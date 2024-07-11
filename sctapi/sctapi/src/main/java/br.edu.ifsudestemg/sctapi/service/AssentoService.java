@@ -42,8 +42,8 @@ public class AssentoService {
         if (assento.getNome() == null || assento.getNome().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
-        if (cinema.getCurso() == null || cinema.getCurso().getId() == null || cinema.getCurso().getId() == 0) {
-        throw new RegraNegocioException("Curso inválido");
+        if (assento.getTipoAssento() == null ) {
+            throw new RegraNegocioException("Tipo de assento inválido");
         }
     }
 

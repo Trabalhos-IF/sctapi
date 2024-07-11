@@ -39,13 +39,5 @@ public class TipoTicketService {
     }
 
     public void validar(TipoTicket tipoTicket) {
-        Set<ConstraintViolation<TipoTicket>> violations = validator.validate(tipoTicket);
-        if (!violations.isEmpty()) {
-            StringBuilder sb = new StringBuilder();
-            for (ConstraintViolation<TipoTicket> violation : violations) {
-                sb.append(violation.getMessage()).append("\n");
-            }
-            throw new RegraNegocioException(sb.toString());
-        }
     }
 }
