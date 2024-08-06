@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/filmes")
 @RequiredArgsConstructor
+@CrossOrigin
 public class FilmeController {
     private final FilmeService service;
     private final ProdutoraService produtoraService;
@@ -70,6 +71,7 @@ public class FilmeController {
         }
     }
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody FilmeDTO dto) {
         if (!service.getFilmeById(id).isPresent()) {
             return new ResponseEntity("Filme não encontrado", HttpStatus.NOT_FOUND);

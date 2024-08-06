@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/categorias")
 @RequiredArgsConstructor
+@CrossOrigin
 public class CategoriaController {
 
     private final CategoriaService service;
@@ -55,6 +56,7 @@ public class CategoriaController {
     }
 
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CategoriaDTO dto) {
         if (!service.getCategoriaById(id).isPresent()) {
             return new ResponseEntity("Categoria não encontrado", HttpStatus.NOT_FOUND);

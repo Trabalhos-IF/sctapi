@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/produtoras")
 @RequiredArgsConstructor
+@CrossOrigin
 public class ProdutoraController {
 
     private final ProdutoraService service;
@@ -57,6 +58,7 @@ public class ProdutoraController {
     }
 
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody ProdutoraDTO dto) {
         if (!service.getProdutoraById(id).isPresent()) {
             return new ResponseEntity("Produtora não encontrado", HttpStatus.NOT_FOUND);

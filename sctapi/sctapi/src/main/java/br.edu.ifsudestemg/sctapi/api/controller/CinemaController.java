@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/cinemas")
 @RequiredArgsConstructor
-
+@CrossOrigin
 public class CinemaController {
     private final CinemaService service;
     private final AdministradorService admService;
@@ -72,6 +72,7 @@ public class CinemaController {
     }
 
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CinemaDTO dto) {
         if (!service.getCinemaById(id).isPresent()) {
             return new ResponseEntity("Cinema não encontrado", HttpStatus.NOT_FOUND);
@@ -93,7 +94,7 @@ public class CinemaController {
             return new ResponseEntity("Cinema não encontrado", HttpStatus.NOT_FOUND);
         }
         try {
-            service.excluir(Cinema.get());
+            service.excluir(cinema.get());
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

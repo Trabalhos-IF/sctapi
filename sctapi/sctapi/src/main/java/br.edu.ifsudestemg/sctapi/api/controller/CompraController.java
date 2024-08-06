@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/compras")
 @RequiredArgsConstructor
-
+@CrossOrigin
 public class CompraController {
     private final CompraService service;
     private final FormaPagamentoService formaPagamentoService;
@@ -92,6 +92,7 @@ public class CompraController {
     }
 
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CompraDTO dto) {
         if (!service.getCompraById(id).isPresent()) {
             return new ResponseEntity("Compra não encontrado", HttpStatus.NOT_FOUND);

@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/assentos")
 @RequiredArgsConstructor
+@CrossOrigin
 public class AssentoController {
     private final TipoAssentoService tipoAssentoService;
     private final AssentoService service;
@@ -72,6 +73,7 @@ public class AssentoController {
     }
 
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody AssentoDTO dto) {
         if (!service.getAssentoById(id).isPresent()) {
             return new ResponseEntity("Assento não encontrado", HttpStatus.NOT_FOUND);

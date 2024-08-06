@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/salas")
 @RequiredArgsConstructor
+@CrossOrigin
 public class SalaController {
 
     private final SalaService service;
@@ -75,7 +76,7 @@ public class SalaController {
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Sala> sala = service.getSalaById(id);
-        if (!Sala.isPresent()) {
+        if (!sala.isPresent()) {
             return new ResponseEntity("Sala não encontrado", HttpStatus.NOT_FOUND);
         }
         try {

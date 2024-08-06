@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/formaPagamentos")
 @RequiredArgsConstructor
+@CrossOrigin
 public class FormaPagamentoController {
 
     private final FormaPagamentoService service;
@@ -58,6 +59,7 @@ public class FormaPagamentoController {
     }
 
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody FormaPagamentoDTO dto) {
         if (!service.getFormaPagamentoById(id).isPresent()) {
             return new ResponseEntity("FormaPagamento não encontrado", HttpStatus.NOT_FOUND);

@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/tiposTickets")
 @RequiredArgsConstructor
+@CrossOrigin
 public class TipoTicketController {
 
     private final TipoTicketService service;
@@ -48,6 +49,7 @@ public class TipoTicketController {
     //}
 
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoTicketDTO dto) {
         if (!service.getTipoTicketById(id).isPresent()) {
             return new ResponseEntity("TipoTicket não encontrado", HttpStatus.NOT_FOUND);

@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/sessoes")
 @RequiredArgsConstructor
+@CrossOrigin
 public class SessaoController {
 
     private final SessaoService service;
@@ -58,6 +59,7 @@ public class SessaoController {
     }
 
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody SessaoDTO dto) {
         if (!service.getSessaoById(id).isPresent()) {
             return new ResponseEntity("Sessao não encontrado", HttpStatus.NOT_FOUND);

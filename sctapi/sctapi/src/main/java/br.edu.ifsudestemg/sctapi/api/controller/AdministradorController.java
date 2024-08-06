@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/v1/administradores")
 @RequiredArgsConstructor
+@CrossOrigin
 public class AdministradorController{
 
     private final AdministradorService service;
@@ -56,6 +57,7 @@ public class AdministradorController{
         }
     }
 
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody AdministradorDTO dto) {
         if (!service.getAdministradorById(id).isPresent()) {
             return new ResponseEntity("Administrador não encontrado", HttpStatus.NOT_FOUND);

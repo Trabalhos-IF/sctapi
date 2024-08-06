@@ -19,8 +19,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/tiposExibicaos")
+@RequestMapping("/api/v1/tiposExibicoes")
 @RequiredArgsConstructor
+@CrossOrigin
 public class TipoExibicaoController {
 
     private final TipoExibicaoService service;
@@ -56,7 +57,7 @@ public class TipoExibicaoController {
         }
     }
 
-
+    @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoExibicaoDTO dto) {
         if (!service.getTipoExibicaoById(id).isPresent()) {
             return new ResponseEntity("TipoExibicao não encontrado", HttpStatus.NOT_FOUND);
