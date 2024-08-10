@@ -19,7 +19,7 @@ public class TipoTicketService {
     }
 
     public List<TipoTicket> getTiposTicket() {
-        return repository.findAll();
+         return repository.findAll();
     }
 
     public Optional<TipoTicket> getTipoTicketById(Long id) {

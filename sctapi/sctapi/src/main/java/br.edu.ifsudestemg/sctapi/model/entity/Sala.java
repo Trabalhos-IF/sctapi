@@ -21,6 +21,5 @@ public class Sala{
 
     @ManyToOne
     private Cinema cinema;
-    @ManyToOne
-    private Assento assento;
+
 }

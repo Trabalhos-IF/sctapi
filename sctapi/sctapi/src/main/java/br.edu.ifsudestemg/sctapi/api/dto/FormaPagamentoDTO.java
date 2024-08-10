@@ -12,7 +12,7 @@ import org.modelmapper.ModelMapper;
 public class FormaPagamentoDTO {
     private Long id;
 
-    private Long idFormaPagamento;
+    private String tipo;
 
     public static FormaPagamentoDTO create(FormaPagamento formaPagamento) {
         ModelMapper modelMapper = new ModelMapper();

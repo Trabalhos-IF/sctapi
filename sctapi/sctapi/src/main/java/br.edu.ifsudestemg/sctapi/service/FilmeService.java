@@ -44,9 +44,9 @@ public class FilmeService {
         if (filme.getSinopse() == null || filme.getSinopse().trim().equals("")) {
             throw new RegraNegocioException("Sinopse do filme inválida");
         }
-        if (filme.getFaixaEtaria() == null || filme.getFaixaEtaria().trim().equals("")) {
-            throw new RegraNegocioException("Faixa etária inválida");
-        }
+//        if (filme.getFaixaEtaria() == null || filme.getFaixaEtaria().trim().equals("")) {
+//            throw new RegraNegocioException("Faixa etária inválida");
+//        }
         if (filme.getProdutora() == null ) {
             throw new RegraNegocioException("Produtora inválida");
         }

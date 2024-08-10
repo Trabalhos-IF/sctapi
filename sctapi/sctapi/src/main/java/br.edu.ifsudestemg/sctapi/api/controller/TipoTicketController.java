@@ -3,10 +3,12 @@ package br.edu.ifsudestemg.sctapi.api.controller;
 
 import br.edu.ifsudestemg.sctapi.api.dto.AdministradorDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.ProdutoraDTO;
+import br.edu.ifsudestemg.sctapi.api.dto.TipoExibicaoDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.Produtora;
+import br.edu.ifsudestemg.sctapi.model.entity.TipoExibicao;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.TipoTicketService;
 import lombok.RequiredArgsConstructor;
@@ -33,21 +35,31 @@ public class TipoTicketController {
         return modelMapper.map(dto, TipoTicket.class);
     }
 
-    //@GetMapping()
-    //public ResponseEntity get() {
-       // List<TipoTicket> tipoTickets = service.getTiposTicket();
-        //return ResponseEntity.ok(tipoTickets.stream().map(TipoTicketDTO::create).collect(Collectors.toList()));
-    //}
+    @GetMapping()
+    public ResponseEntity get() {
+        List<TipoTicket> tipoTickets = service.getTiposTicket();
+        return ResponseEntity.ok(tipoTickets.stream().map(TipoTicketDTO::create).collect(Collectors.toList()));
+    }
 
-    //@GetMapping("/{id}")
-    //public ResponseEntity get(@PathVariable("id") Long id) {
-        //Optional<TipoTicket> tipoTicket = service.getTipoTicketById(id);
-        //if (!tipoTicket.isPresent()) {
-            //return new ResponseEntity("Tipo de Ticket não encontrado", HttpStatus.NOT_FOUND);
-        //}
-        //return ResponseEntity.ok(tipoTicket.map(TipoTicketDTO::create));
-    //}
+    @GetMapping("/{id}")
+    public ResponseEntity get(@PathVariable("id") Long id) {
+        Optional<TipoTicket> tipoTicket = service.getTipoTicketById(id);
+        if (!tipoTicket.isPresent()) {
+            return new ResponseEntity("Tipo de Ticket não encontrado", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(tipoTicket.map(TipoTicketDTO::create));
+    }
 
+    @PostMapping()
+    public ResponseEntity post(@RequestBody TipoTicketDTO dto) {
+        try {
+            TipoTicket tipoTicket = converter(dto);
+            tipoTicket = service.salvar(tipoTicket);
+            return new ResponseEntity(tipoTicket, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoTicketDTO dto) {

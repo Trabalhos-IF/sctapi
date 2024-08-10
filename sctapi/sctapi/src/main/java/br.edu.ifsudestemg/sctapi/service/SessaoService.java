@@ -52,9 +52,7 @@ public class SessaoService {
         if (sessao.getTipoExibicao() == null) {
             throw new RegraNegocioException("Tipo de exibição inválido");
         }
-        if (sessao.getTipoTicket() == null) {
-            throw new RegraNegocioException("Tipo de ticket inválido");
-        }
+
     }
  
 }

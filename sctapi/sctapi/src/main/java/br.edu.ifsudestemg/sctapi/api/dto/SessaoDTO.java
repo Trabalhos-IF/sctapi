@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -13,8 +14,8 @@ public class SessaoDTO {
 
     private Long id;
 
-    //private Date dtExibicao;
-    //private Date horarioInic;
+    private LocalDate dtExibicao;
+    private LocalDate horarioInicial;
     //private float reservaAssentosMeia;
 
     private Long idSala;
@@ -25,7 +26,6 @@ public class SessaoDTO {
 
     private Long idTipoExibicao;
 
-    private Long idTipoTicket;
 
     public static SessaoDTO create(Sessao sessao) {
         ModelMapper modelMapper = new ModelMapper();

@@ -16,6 +16,10 @@ public class TipoTicket{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String tipo;
     private Float valor;
+
+    @ManyToOne
+    private Cinema cinema;
+
 }

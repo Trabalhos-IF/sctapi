@@ -49,8 +49,6 @@ public class SalaService {
         if (sala.getCinema() == null ) {
             throw new RegraNegocioException("Cinema inválido");
         }
-        if (sala.getAssento() == null ) {
-            throw new RegraNegocioException("Assento inválido");
-        }
+
     }
 }

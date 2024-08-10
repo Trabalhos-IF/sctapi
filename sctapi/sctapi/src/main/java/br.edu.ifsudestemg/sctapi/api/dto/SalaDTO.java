@@ -16,7 +16,7 @@ public class SalaDTO {
     private String numAssentos;
 
     private Long idCinema;
-    private Long idAssento;
+
 
     public static SalaDTO create(Sala sala) {
         ModelMapper modelMapper = new ModelMapper();

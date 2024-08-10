@@ -3,6 +3,7 @@ package br.edu.ifsudestemg.sctapi.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,8 +17,8 @@ public class Sessao{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //private Date dtExibicao;
-    //private Date horarioInic;
+    private LocalDate dtExibicao ;
+    private LocalDate horarioInicial;
     //private float reservaAssentosMeia;
 
     @ManyToOne
@@ -31,9 +32,6 @@ public class Sessao{
 
     @ManyToOne
     private TipoExibicao tipoExibicao;
-
-    @ManyToOne
-    private TipoTicket tipoTicket;
 
 
 }

@@ -40,8 +40,8 @@ public class FormaPagamentoService {
     }
 
     public void validar(FormaPagamento formaPagamento) {
-        if (formaPagamento.getCompra() == null) {
-            throw new RegraNegocioException("Compra inválida");
+        if (formaPagamento.getTipo() == null) {
+            throw new RegraNegocioException("Tipo inválido");
         }
     }
 }

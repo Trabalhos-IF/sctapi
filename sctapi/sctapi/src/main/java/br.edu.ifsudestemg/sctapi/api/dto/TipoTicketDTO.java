@@ -12,10 +12,10 @@ import org.modelmapper.ModelMapper;
 @AllArgsConstructor
 public class TipoTicketDTO {
     private Long id;
-    private String nome;
+    private String tipo;
     private Float valor;
-
-    public static TipoTicketDTO create(TipoTicketDTO tipoTicket) {
+    private Long idCinema;
+    public static TipoTicketDTO create(TipoTicket tipoTicket) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(tipoTicket, TipoTicketDTO.class);
     }

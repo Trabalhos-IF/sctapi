@@ -17,6 +17,10 @@ public class Compra{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String nome;
+    private String email;
+    private int quantidade;
+    private float valor;
 
     @ManyToOne
     private FormaPagamento formaPagamento;
