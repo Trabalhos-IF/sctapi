@@ -15,9 +15,12 @@ public class Assento{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private String numero;
     private boolean disponivel;
 
     @ManyToOne
     private TipoAssento tipoAssento;
+
+    @ManyToOne
+    private Sala sala;
 }

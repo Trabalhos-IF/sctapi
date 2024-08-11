@@ -40,7 +40,7 @@ public class TipoAssentoService {
     }
 
     public void validar(TipoAssento tipoAssento) {
-        if (tipoAssento.getNome() == null || tipoAssento.getNome().trim().equals("")) {
+        if (tipoAssento.getTipo() == null || tipoAssento.getTipo().trim().equals("")) {
             throw new RegraNegocioException("Nome inválido");
         }
 

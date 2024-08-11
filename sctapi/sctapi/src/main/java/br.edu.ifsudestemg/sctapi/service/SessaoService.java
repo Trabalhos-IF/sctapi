@@ -41,7 +41,7 @@ public class SessaoService {
 
     public void validar(Sessao sessao) {
         if (sessao.getSala() == null) {
-            throw new RegraNegocioException("Sessão inválido");
+            throw new RegraNegocioException("Sala inválida");
         }
         if (sessao.getFilme() == null) {
             throw new RegraNegocioException("Filme inválido");

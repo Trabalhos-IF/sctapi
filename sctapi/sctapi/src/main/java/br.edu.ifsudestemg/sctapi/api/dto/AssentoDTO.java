@@ -11,10 +11,11 @@ import org.modelmapper.ModelMapper;
 @AllArgsConstructor
 public class AssentoDTO {
     private Long id;
-    private String nome;
+    private String numero;
     private boolean disponivel;
 
     private Long idTipoAssento;
+    private Long idSala;
 
     public static AssentoDTO create(Assento assento) {
         ModelMapper modelMapper = new ModelMapper();

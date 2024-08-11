@@ -14,7 +14,7 @@ import org.modelmapper.ModelMapper;
 public class TipoAssentoDTO {
     private Long id;
 
-    private String nome;
+    private String tipo;
 
     public static TipoAssentoDTO create(TipoAssento tipoAssento) {
         ModelMapper modelMapper = new ModelMapper();

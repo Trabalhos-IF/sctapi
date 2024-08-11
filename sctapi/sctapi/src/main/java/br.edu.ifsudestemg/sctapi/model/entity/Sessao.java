@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Sessao{
     private Long id;
 
     private LocalDate dtExibicao ;
-    private LocalDate horarioInicial;
+   private LocalTime horarioInicial;
     //private float reservaAssentosMeia;
 
     @ManyToOne
