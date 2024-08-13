@@ -47,7 +47,7 @@ public class SwaggerConfig {
     private Contact contact(){
         return new Contact("Matheus Pullig Soranço de Carvalho e Thiago Soares"
                 , "https://github.com/Matheussoranco",
-                "marcoaparaujo@gmail.com");
+                "matheussoranco@outlook.com");
     }
 
 
