@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import io.swagger.annotations.*;
 @RestController
 @RequestMapping("/api/v1/sessoes")
 @RequiredArgsConstructor
@@ -38,6 +38,10 @@ public class SessaoController {
         return ResponseEntity.ok(sessoes.stream().map(SessaoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sessão encontrada", response = Sessao.class),
+            @ApiResponse(code = 404, message = "Sessão não encontrada")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Sessao> sessao = service.getSessaoById(id);

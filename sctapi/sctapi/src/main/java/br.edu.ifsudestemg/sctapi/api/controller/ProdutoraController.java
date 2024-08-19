@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import io.swagger.annotations.*;
 @RestController
 @RequestMapping("/api/v1/produtoras")
 @RequiredArgsConstructor
@@ -37,6 +37,10 @@ public class ProdutoraController {
         return ResponseEntity.ok(produtora.stream().map(ProdutoraDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Produtora encontrado", response = Produtora.class),
+            @ApiResponse(code = 404, message = "Produtora não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Produtora> produtora = service.getProdutoraById(id);

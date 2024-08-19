@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import io.swagger.annotations.*;
 @RestController
 @RequestMapping("/api/v1/tiposExibicoes")
 @RequiredArgsConstructor
@@ -37,6 +37,10 @@ public class TipoExibicaoController {
         return ResponseEntity.ok(tipoExibicoes.stream().map(TipoExibicaoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Tipo de exibição encontrado", response = TipoExibicao.class),
+            @ApiResponse(code = 404, message = "Tipo de exibição não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<TipoExibicao> tipoExibicao = service.getTipoExibicaoById(id);

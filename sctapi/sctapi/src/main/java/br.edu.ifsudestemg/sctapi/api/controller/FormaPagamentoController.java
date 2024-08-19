@@ -6,6 +6,7 @@ import br.edu.ifsudestemg.sctapi.api.dto.FormaPagamentoDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
+import br.edu.ifsudestemg.sctapi.model.entity.Filme;
 import br.edu.ifsudestemg.sctapi.model.entity.FormaPagamento;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.FormaPagamentoService;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import io.swagger.annotations.*;
 @RestController
 @RequestMapping("/api/v1/formaPagamentos")
 @RequiredArgsConstructor
@@ -38,6 +39,10 @@ public class FormaPagamentoController {
         return ResponseEntity.ok(formasPagamentos.stream().map(FormaPagamentoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "FormaPagamento encontrada", response = FormaPagamento.class),
+            @ApiResponse(code = 404, message = "FormaPagamento não encontrada")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<FormaPagamento> formaPagamento = service.getFormaPagamentoById(id);

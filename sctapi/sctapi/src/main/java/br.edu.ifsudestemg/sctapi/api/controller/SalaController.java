@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import io.swagger.annotations.*;
 
 @RestController
 @RequestMapping("/api/v1/salas")
@@ -38,6 +39,10 @@ public class SalaController {
         return ResponseEntity.ok(salas.stream().map(SalaDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sala encontrada", response = Sala.class),
+            @ApiResponse(code = 404, message = "Sala não encontrada")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Sala> sala = service.getSalaById(id);

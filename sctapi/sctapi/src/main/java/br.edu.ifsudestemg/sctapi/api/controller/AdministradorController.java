@@ -11,6 +11,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.AdministradorService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,11 @@ public class AdministradorController{
         return ResponseEntity.ok(administradores.stream().map(AdministradorDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter detalhes de um administrador")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "administrador encontrado", response = AdministradorDTO.class),
+            @ApiResponse(code = 404, message = "administrador não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Administrador> administrador = service.getAdministradorById(id);

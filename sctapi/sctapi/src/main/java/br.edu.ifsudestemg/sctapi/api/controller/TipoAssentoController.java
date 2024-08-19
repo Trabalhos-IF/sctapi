@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import io.swagger.annotations.*;
 @RestController
 @RequestMapping("/api/v1/tiposAssentos")
 @RequiredArgsConstructor
@@ -39,6 +39,10 @@ public class TipoAssentoController {
         return ResponseEntity.ok(tipoAssentos.stream().map(TipoAssentoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Tipo de assento encontrado", response = TipoAssento.class),
+            @ApiResponse(code = 404, message = "Tipo de assento não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<TipoAssento> tipoAssento = service.getTipoAssentoById(id);

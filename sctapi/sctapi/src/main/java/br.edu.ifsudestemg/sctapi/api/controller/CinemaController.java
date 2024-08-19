@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import io.swagger.annotations.*;
 @RestController
 @RequestMapping("/api/v1/cinemas")
 @RequiredArgsConstructor
@@ -51,6 +51,10 @@ public class CinemaController {
         return ResponseEntity.ok(cinemas.stream().map(CinemaDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Cinema encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Cinema não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Cinema> cinema = service.getCinemaById(id);

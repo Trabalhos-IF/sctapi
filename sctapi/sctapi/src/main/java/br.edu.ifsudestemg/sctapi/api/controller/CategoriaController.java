@@ -5,6 +5,7 @@ import br.edu.ifsudestemg.sctapi.api.dto.CategoriaDTO;
 
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
+import br.edu.ifsudestemg.sctapi.model.entity.Assento;
 import br.edu.ifsudestemg.sctapi.model.entity.Categoria;
 import br.edu.ifsudestemg.sctapi.service.CategoriaService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import io.swagger.annotations.*;
 
 @RestController
 @RequestMapping("/api/v1/categorias")
@@ -35,6 +37,10 @@ public class CategoriaController {
         return ResponseEntity.ok(categoria.stream().map(CategoriaDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Categoria encontrada", response = Categoria.class),
+            @ApiResponse(code = 404, message = "Categoria não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Categoria> categoria = service.getCategoriaById(id);

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import io.swagger.annotations.*;
 
 @RestController
 @RequestMapping("/api/v1/clientes")
@@ -38,6 +39,10 @@ public class ClienteController{
         return ResponseEntity.ok(clientes.stream().map(ClienteDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Cliente encontrado", response = Cliente.class),
+            @ApiResponse(code = 404, message = "Cliente não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Cliente> cliente = service.getClienteById(id);

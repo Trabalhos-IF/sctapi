@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import io.swagger.annotations.*;
 
 @RestController
 @RequestMapping("/api/v1/compras")
@@ -71,6 +72,10 @@ public class CompraController {
         return ResponseEntity.ok(compras.stream().map(CompraDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Compra encontrada", response = Compra.class),
+            @ApiResponse(code = 404, message = "Compra não encontrada")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Compra> compra = service.getCompraById(id);

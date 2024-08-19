@@ -12,6 +12,7 @@ import br.edu.ifsudestemg.sctapi.model.entity.TipoExibicao;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.TipoTicketService;
 import lombok.RequiredArgsConstructor;
+import io.swagger.annotations.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,12 +37,18 @@ public class TipoTicketController {
     }
 
     @GetMapping()
+
     public ResponseEntity get() {
         List<TipoTicket> tipoTickets = service.getTiposTicket();
         return ResponseEntity.ok(tipoTickets.stream().map(TipoTicketDTO::create).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")
+    @ApiOperation("Obter detalhes de um tipo de ticket")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tipo de ticket encontrado", response = TipoTicketDTO.class),
+            @ApiResponse(code = 404, message = "tipo de ticket não encontrado")
+    })
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<TipoTicket> tipoTicket = service.getTipoTicketById(id);
         if (!tipoTicket.isPresent()) {
@@ -51,6 +58,13 @@ public class TipoTicketController {
     }
 
     @PostMapping()
+    @ApiOperation("Salvar um tipo de ticket")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tipo de ticket salvo com sucesso", response = Void.class),
+            @ApiResponse(code = 404, message = "Erro ao salvar um tipo de ticket", response = Void.class)
+
+    })
+
     public ResponseEntity post(@RequestBody TipoTicketDTO dto) {
         try {
             TipoTicket tipoTicket = converter(dto);
@@ -62,6 +76,11 @@ public class TipoTicketController {
     }
 
     @PutMapping("{id}")
+    @ApiOperation("Modificar um tipo de ticket")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tipo de ticket modificado com sucesso", response = Void.class),
+            @ApiResponse(code = 404, message = "Erro ao modificar um tipo de ticket", response = Void.class)
+    })
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoTicketDTO dto) {
         if (!service.getTipoTicketById(id).isPresent()) {
             return new ResponseEntity("TipoTicket não encontrado", HttpStatus.NOT_FOUND);

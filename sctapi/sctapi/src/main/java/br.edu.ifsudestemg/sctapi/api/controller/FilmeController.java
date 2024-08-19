@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import io.swagger.annotations.*;
 
 @RestController
 @RequestMapping("/api/v1/filmes")
@@ -51,6 +52,10 @@ public class FilmeController {
         return ResponseEntity.ok(filmes.stream().map(FilmeDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Filme encontrado", response = Filme.class),
+            @ApiResponse(code = 404, message = "Filme não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Filme> filme = service.getFilmeById(id);

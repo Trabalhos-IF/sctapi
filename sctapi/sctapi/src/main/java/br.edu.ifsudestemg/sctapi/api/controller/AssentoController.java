@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import io.swagger.annotations.*;
 
 @RestController
 @RequestMapping("/api/v1/assentos")
@@ -52,6 +53,11 @@ public class AssentoController {
         return ResponseEntity.ok(assentos.stream().map(AssentoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter detalhes de um assento")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "assento encontrado", response = Assento.class),
+            @ApiResponse(code = 404, message = "assento não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Assento> assento = service.getAssentoById(id);
