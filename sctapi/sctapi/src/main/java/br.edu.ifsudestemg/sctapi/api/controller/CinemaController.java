@@ -51,6 +51,7 @@ public class CinemaController {
         return ResponseEntity.ok(cinemas.stream().map(CinemaDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter detalhes de um cinema")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Cinema encontrado", response = Cinema.class),
             @ApiResponse(code = 404, message = "Cinema não encontrado")
@@ -64,6 +65,11 @@ public class CinemaController {
         return ResponseEntity.ok(cinema.map(CinemaDTO::create));
     }
 
+    @ApiOperation("Incluir um cinema")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Cinema encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Cinema não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody CinemaDTO dto) {
         try {
@@ -75,7 +81,11 @@ public class CinemaController {
         }
     }
 
-
+    @ApiOperation("Atualizar um cinema")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Cinema encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Cinema não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CinemaDTO dto) {
         if (!service.getCinemaById(id).isPresent()) {
@@ -91,6 +101,11 @@ public class CinemaController {
         }
     }
 
+    @ApiOperation("Excluir um cinema")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Cinema encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Cinema não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Cinema> cinema = service.getCinemaById(id);

@@ -39,6 +39,7 @@ public class TipoAssentoController {
         return ResponseEntity.ok(tipoAssentos.stream().map(TipoAssentoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter informações de um tipo de assento")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Tipo de assento encontrado", response = TipoAssento.class),
             @ApiResponse(code = 404, message = "Tipo de assento não encontrado")
@@ -52,6 +53,11 @@ public class TipoAssentoController {
         return ResponseEntity.ok(tipoAssento.map(TipoAssentoDTO::create));
     }
 
+    @ApiOperation("Incluir um tipo de assento")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Tipo de assento encontrado", response = TipoAssento.class),
+            @ApiResponse(code = 404, message = "Tipo de assento não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody TipoAssentoDTO dto) {
 
@@ -68,6 +74,11 @@ public class TipoAssentoController {
         }
     }
 
+    @ApiOperation("Atualizar um tipo de assento")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Tipo de assento encontrado", response = TipoAssento.class),
+            @ApiResponse(code = 404, message = "Tipo de assento não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoAssentoDTO dto) {
         if (!service.getTipoAssentoById(id).isPresent()) {
@@ -83,6 +94,11 @@ public class TipoAssentoController {
         }
     }
 
+    @ApiOperation("Excluir um tipo de assento")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Tipo de assento encontrado", response = TipoAssento.class),
+            @ApiResponse(code = 404, message = "Tipo de assento não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<TipoAssento> tipoAssento = service.getTipoAssentoById(id);

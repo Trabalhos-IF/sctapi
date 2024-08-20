@@ -6,6 +6,7 @@ import br.edu.ifsudestemg.sctapi.api.dto.SalaDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
+import br.edu.ifsudestemg.sctapi.model.entity.Produtora;
 import br.edu.ifsudestemg.sctapi.model.entity.Sala;
 import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
 import br.edu.ifsudestemg.sctapi.service.SalaService;
@@ -39,9 +40,10 @@ public class SalaController {
         return ResponseEntity.ok(salas.stream().map(SalaDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter informações de uma Sala")
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Sala encontrada", response = Sala.class),
-            @ApiResponse(code = 404, message = "Sala não encontrada")
+            @ApiResponse(code = 200, message = "Sala encontrado", response = Produtora.class),
+            @ApiResponse(code = 404, message = "Sala não encontrado")
     })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
@@ -52,6 +54,11 @@ public class SalaController {
         return ResponseEntity.ok(sala.map(SalaDTO::create));
     }
 
+    @ApiOperation("Incluir uma Sala")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sala encontrado", response = Produtora.class),
+            @ApiResponse(code = 404, message = "Sala não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody SalaDTO dto) {
         try {
@@ -63,7 +70,12 @@ public class SalaController {
         }
     }
 
-
+    @ApiOperation("Atualizar uma Sala")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sala encontrado", response = Produtora.class),
+            @ApiResponse(code = 404, message = "Sala não encontrado")
+    })
+    @PutMapping
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody SalaDTO dto) {
         if (!service.getSalaById(id).isPresent()) {
             return new ResponseEntity("Sala não encontrado", HttpStatus.NOT_FOUND);
@@ -78,6 +90,11 @@ public class SalaController {
         }
     }
 
+    @ApiOperation("Excluir uma Sala")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sala encontrado", response = Produtora.class),
+            @ApiResponse(code = 404, message = "Sala não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Sala> sala = service.getSalaById(id);

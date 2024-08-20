@@ -52,6 +52,11 @@ public class AdministradorController{
         return ResponseEntity.ok(administrador.map(AdministradorDTO::create));
     }
 
+    @ApiOperation("Incluir um administrador")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "administrador encontrado", response = AdministradorDTO.class),
+            @ApiResponse(code = 404, message = "administrador não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody AdministradorDTO dto) {
         try {
@@ -63,6 +68,11 @@ public class AdministradorController{
         }
     }
 
+    @ApiOperation("Atualizar um administrador")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "administrador encontrado", response = AdministradorDTO.class),
+            @ApiResponse(code = 404, message = "administrador não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody AdministradorDTO dto) {
         if (!service.getAdministradorById(id).isPresent()) {
@@ -78,6 +88,11 @@ public class AdministradorController{
         }
     }
 
+    @ApiOperation("Deletar um administrador")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "administrador encontrado", response = AdministradorDTO.class),
+            @ApiResponse(code = 404, message = "administrador não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Administrador> administrador = service.getAdministradorById(id);

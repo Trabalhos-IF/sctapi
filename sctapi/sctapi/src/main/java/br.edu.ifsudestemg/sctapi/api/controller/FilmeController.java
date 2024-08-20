@@ -51,7 +51,7 @@ public class FilmeController {
         List<Filme> filmes = service.getFilmes();
         return ResponseEntity.ok(filmes.stream().map(FilmeDTO::create).collect(Collectors.toList()));
     }
-
+    @ApiOperation("Obter informação de um filme")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Filme encontrado", response = Filme.class),
             @ApiResponse(code = 404, message = "Filme não encontrado")
@@ -65,6 +65,11 @@ public class FilmeController {
         return ResponseEntity.ok(filme.map(FilmeDTO::create));
     }
 
+    @ApiOperation("Incluir um filme")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Filme encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Filme não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody FilmeDTO dto) {
         try {
@@ -76,6 +81,11 @@ public class FilmeController {
         }
     }
 
+    @ApiOperation("Atualizar um filme")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Filme encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Filme não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody FilmeDTO dto) {
         if (!service.getFilmeById(id).isPresent()) {
@@ -91,6 +101,11 @@ public class FilmeController {
         }
     }
 
+    @ApiOperation("Excluir um filme")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Filme encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Filme não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Filme> filme = service.getFilmeById(id);

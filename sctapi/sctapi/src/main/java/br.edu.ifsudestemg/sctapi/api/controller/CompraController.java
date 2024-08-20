@@ -72,9 +72,10 @@ public class CompraController {
         return ResponseEntity.ok(compras.stream().map(CompraDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Incluir uma compra")
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Compra encontrada", response = Compra.class),
-            @ApiResponse(code = 404, message = "Compra não encontrada")
+            @ApiResponse(code = 200, message = "Compra encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Compra não encontrado")
     })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
@@ -85,6 +86,11 @@ public class CompraController {
         return ResponseEntity.ok(compra.map(CompraDTO::create));
     }
 
+    @ApiOperation("Atualizar uma compra")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Compra encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Compra não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody CompraDTO dto) {
         try {
@@ -96,7 +102,11 @@ public class CompraController {
         }
     }
 
-
+    @ApiOperation("Atualizar uma compra")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Compra encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Compra não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CompraDTO dto) {
         if (!service.getCompraById(id).isPresent()) {
@@ -112,6 +122,11 @@ public class CompraController {
         }
     }
 
+    @ApiOperation("Excluir uma compra")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Compra encontrado", response = Cinema.class),
+            @ApiResponse(code = 404, message = "Compra não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Compra> compra = service.getCompraById(id);

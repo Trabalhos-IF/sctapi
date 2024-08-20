@@ -5,10 +5,7 @@ import br.edu.ifsudestemg.sctapi.api.dto.FormaPagamentoDTO;
 
 import br.edu.ifsudestemg.sctapi.api.dto.TipoTicketDTO;
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
-import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
-import br.edu.ifsudestemg.sctapi.model.entity.Filme;
-import br.edu.ifsudestemg.sctapi.model.entity.FormaPagamento;
-import br.edu.ifsudestemg.sctapi.model.entity.TipoTicket;
+import br.edu.ifsudestemg.sctapi.model.entity.*;
 import br.edu.ifsudestemg.sctapi.service.FormaPagamentoService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -39,9 +36,10 @@ public class FormaPagamentoController {
         return ResponseEntity.ok(formasPagamentos.stream().map(FormaPagamentoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter informações de uma forma de Pagamento")
     @ApiResponses({
-            @ApiResponse(code = 200, message = "FormaPagamento encontrada", response = FormaPagamento.class),
-            @ApiResponse(code = 404, message = "FormaPagamento não encontrada")
+            @ApiResponse(code = 200, message = "Forma de Pagamento encontrada", response = FormaPagamento.class),
+            @ApiResponse(code = 404, message = "Forma de Pagamento não encontrada")
     })
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
@@ -52,6 +50,11 @@ public class FormaPagamentoController {
         return ResponseEntity.ok(formaPagamento.map(FormaPagamentoDTO::create));
     }
 
+    @ApiOperation("Incluir uma forma de Pagamento")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Forma de Pagamento encontrada", response = FormaPagamento.class),
+            @ApiResponse(code = 404, message = "Forma de Pagamento não encontrada")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody FormaPagamentoDTO dto) {
         try {
@@ -63,7 +66,11 @@ public class FormaPagamentoController {
         }
     }
 
-
+    @ApiOperation("Atualizar uma forma de Pagamento")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Forma de Pagamento encontrada", response = FormaPagamento.class),
+            @ApiResponse(code = 404, message = "Forma de Pagamento não encontrada")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody FormaPagamentoDTO dto) {
         if (!service.getFormaPagamentoById(id).isPresent()) {
@@ -79,6 +86,11 @@ public class FormaPagamentoController {
         }
     }
 
+    @ApiOperation("Excluir uma forma de Pagamento")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Forma de Pagamento encontrada", response = FormaPagamento.class),
+            @ApiResponse(code = 404, message = "Forma de Pagamento não encontrada")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<FormaPagamento> formaPagamento = service.getFormaPagamentoById(id);

@@ -37,6 +37,7 @@ public class TipoExibicaoController {
         return ResponseEntity.ok(tipoExibicoes.stream().map(TipoExibicaoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter informações de um tipo de exibição")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Tipo de exibição encontrado", response = TipoExibicao.class),
             @ApiResponse(code = 404, message = "Tipo de exibição não encontrado")
@@ -50,6 +51,11 @@ public class TipoExibicaoController {
         return ResponseEntity.ok(tipoExibicao.map(TipoExibicaoDTO::create));
     }
 
+    @ApiOperation("Incluir um tipo de exibição")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Tipo de exibição encontrado", response = TipoExibicao.class),
+            @ApiResponse(code = 404, message = "Tipo de exibição não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody TipoExibicaoDTO dto) {
         try {
@@ -61,6 +67,11 @@ public class TipoExibicaoController {
         }
     }
 
+    @ApiOperation("Atualizar um tipo de exibição")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Tipo de exibição encontrado", response = TipoExibicao.class),
+            @ApiResponse(code = 404, message = "Tipo de exibição não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody TipoExibicaoDTO dto) {
         if (!service.getTipoExibicaoById(id).isPresent()) {
@@ -76,6 +87,11 @@ public class TipoExibicaoController {
         }
     }
 
+    @ApiOperation("Excluir um tipo de exibição")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Tipo de exibição encontrado", response = TipoExibicao.class),
+            @ApiResponse(code = 404, message = "Tipo de exibição não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<TipoExibicao> tipoExibicao = service.getTipoExibicaoById(id);

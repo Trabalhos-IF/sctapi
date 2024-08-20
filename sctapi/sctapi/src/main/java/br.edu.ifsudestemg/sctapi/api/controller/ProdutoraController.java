@@ -7,6 +7,7 @@ import br.edu.ifsudestemg.sctapi.api.dto.ProdutoraDTO;
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.entity.Categoria;
+import br.edu.ifsudestemg.sctapi.model.entity.FormaPagamento;
 import br.edu.ifsudestemg.sctapi.model.entity.Produtora;
 import br.edu.ifsudestemg.sctapi.service.ProdutoraService;
 import lombok.RequiredArgsConstructor;
@@ -37,6 +38,7 @@ public class ProdutoraController {
         return ResponseEntity.ok(produtora.stream().map(ProdutoraDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter iformações de uma Produtora")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Produtora encontrado", response = Produtora.class),
             @ApiResponse(code = 404, message = "Produtora não encontrado")
@@ -50,6 +52,11 @@ public class ProdutoraController {
         return ResponseEntity.ok(produtora.map(ProdutoraDTO::create));
     }
 
+    @ApiOperation("Incluir uma Produtora")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Produtora encontrado", response = Produtora.class),
+            @ApiResponse(code = 404, message = "Produtora não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody ProdutoraDTO dto) {
         try {
@@ -61,7 +68,11 @@ public class ProdutoraController {
         }
     }
 
-
+    @ApiOperation("Atualizar uma Produtora")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Produtora encontrado", response = Produtora.class),
+            @ApiResponse(code = 404, message = "Produtora não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody ProdutoraDTO dto) {
         if (!service.getProdutoraById(id).isPresent()) {
@@ -77,6 +88,11 @@ public class ProdutoraController {
         }
     }
 
+    @ApiOperation("Excluir uma Produtora")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Produtora encontrado", response = Produtora.class),
+            @ApiResponse(code = 404, message = "Produtora não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Produtora> produtora = service.getProdutoraById(id);

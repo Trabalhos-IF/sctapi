@@ -67,6 +67,11 @@ public class AssentoController {
         return ResponseEntity.ok(assento.map(AssentoDTO::create));
     }
 
+    @ApiOperation("Incluir um assento em uma sala")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "assento encontrado", response = Assento.class),
+            @ApiResponse(code = 404, message = "assento não encontrado")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody AssentoDTO dto) {
         try {
@@ -79,6 +84,11 @@ public class AssentoController {
     }
 
 
+    @ApiOperation("Atualizar um assento em uma sala")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "assento encontrado", response = Assento.class),
+            @ApiResponse(code = 404, message = "assento não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody AssentoDTO dto) {
         if (!service.getAssentoById(id).isPresent()) {
@@ -94,6 +104,11 @@ public class AssentoController {
         }
     }
 
+    @ApiOperation("Excluir um assento")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "assento encontrado", response = Assento.class),
+            @ApiResponse(code = 404, message = "assento não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Assento> assento = service.getAssentoById(id);

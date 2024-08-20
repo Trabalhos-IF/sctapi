@@ -44,7 +44,7 @@ public class TipoTicketController {
     }
 
     @GetMapping("/{id}")
-    @ApiOperation("Obter detalhes de um tipo de ticket")
+    @ApiOperation("Obter informações de um tipo de ticket")
     @ApiResponses({
             @ApiResponse(code = 200, message = "tipo de ticket encontrado", response = TipoTicketDTO.class),
             @ApiResponse(code = 404, message = "tipo de ticket não encontrado")
@@ -58,9 +58,9 @@ public class TipoTicketController {
     }
 
     @PostMapping()
-    @ApiOperation("Salvar um tipo de ticket")
+    @ApiOperation("Incluir um tipo de ticket")
     @ApiResponses({
-            @ApiResponse(code = 200, message = "tipo de ticket salvo com sucesso", response = Void.class),
+            @ApiResponse(code = 200, message = "Tipo de ticket salvo com sucesso", response = Void.class),
             @ApiResponse(code = 404, message = "Erro ao salvar um tipo de ticket", response = Void.class)
 
     })
@@ -76,7 +76,7 @@ public class TipoTicketController {
     }
 
     @PutMapping("{id}")
-    @ApiOperation("Modificar um tipo de ticket")
+    @ApiOperation("Atualizar um tipo de ticket")
     @ApiResponses({
             @ApiResponse(code = 200, message = "tipo de ticket modificado com sucesso", response = Void.class),
             @ApiResponse(code = 404, message = "Erro ao modificar um tipo de ticket", response = Void.class)
@@ -95,6 +95,11 @@ public class TipoTicketController {
         }
     }
 
+    @ApiOperation("Excluir um tipo de ticket")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tipo de ticket modificado com sucesso", response = Void.class),
+            @ApiResponse(code = 404, message = "Erro ao modificar um tipo de ticket", response = Void.class)
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<TipoTicket> tipoTicket = service.getTipoTicketById(id);

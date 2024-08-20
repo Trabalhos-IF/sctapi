@@ -38,6 +38,7 @@ public class SessaoController {
         return ResponseEntity.ok(sessoes.stream().map(SessaoDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter informações de uma Sessão")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Sessão encontrada", response = Sessao.class),
             @ApiResponse(code = 404, message = "Sessão não encontrada")
@@ -51,6 +52,11 @@ public class SessaoController {
         return ResponseEntity.ok(sessao.map(SessaoDTO::create));
     }
 
+    @ApiOperation("Incluir uma Sessão")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sessão encontrada", response = Sessao.class),
+            @ApiResponse(code = 404, message = "Sessão não encontrada")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody SessaoDTO dto) {
         try {
@@ -62,7 +68,11 @@ public class SessaoController {
         }
     }
 
-
+    @ApiOperation("Atualizar uma Sessão")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sessão encontrada", response = Sessao.class),
+            @ApiResponse(code = 404, message = "Sessão não encontrada")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody SessaoDTO dto) {
         if (!service.getSessaoById(id).isPresent()) {
@@ -78,6 +88,11 @@ public class SessaoController {
         }
     }
 
+    @ApiOperation("Excluir uma Sessão")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sessão encontrada", response = Sessao.class),
+            @ApiResponse(code = 404, message = "Sessão não encontrada")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Sessao> sessao = service.getSessaoById(id);

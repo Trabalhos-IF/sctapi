@@ -37,6 +37,7 @@ public class CategoriaController {
         return ResponseEntity.ok(categoria.stream().map(CategoriaDTO::create).collect(Collectors.toList()));
     }
 
+    @ApiOperation("Obter detalhes de uma categoria")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Categoria encontrada", response = Categoria.class),
             @ApiResponse(code = 404, message = "Categoria não encontrado")
@@ -50,6 +51,11 @@ public class CategoriaController {
         return ResponseEntity.ok(categoria.map(CategoriaDTO::create));
     }
 
+    @ApiOperation("Incluir uma categoria")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Categoria encontrada", response = Categoria.class),
+            @ApiResponse(code = 404, message = "Categoria não encontrada")
+    })
     @PostMapping()
     public ResponseEntity post(@RequestBody CategoriaDTO dto) {
         try {
@@ -61,7 +67,11 @@ public class CategoriaController {
         }
     }
 
-
+    @ApiOperation("Atualizar uma categoria")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Categoria encontrada", response = Categoria.class),
+            @ApiResponse(code = 404, message = "Categoria não encontrado")
+    })
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody CategoriaDTO dto) {
         if (!service.getCategoriaById(id).isPresent()) {
@@ -77,6 +87,11 @@ public class CategoriaController {
         }
     }
 
+    @ApiOperation("Excluir uma categoria")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Categoria encontrada", response = Categoria.class),
+            @ApiResponse(code = 404, message = "Categoria não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity excluir(@PathVariable("id") Long id) {
         Optional<Categoria> categoria = service.getCategoriaById(id);
