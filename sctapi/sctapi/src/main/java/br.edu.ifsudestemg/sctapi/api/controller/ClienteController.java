@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,7 @@ import io.swagger.annotations.*;
 public class ClienteController{
 
     private final ClienteService service;
+    private final PasswordEncoder passwordEncoder;
 
     public Cliente converter(ClienteDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
