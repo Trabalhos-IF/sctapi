@@ -1,4 +1,3 @@
-br/edu/ifsudestemg/sctapi/api/controller/UsuarioController.class
-br/edu/ifsudestemg/sctapi/api/dto/TokenDTO.class
-br/edu/ifsudestemg/sctapi/service/UsuarioService.class
-br/edu/ifsudestemg/sctapi/api/dto/CredenciaisDTO.class
+br\edu\ifsudestemg\sctapi\model\entity\Usuario.class
+br\edu\ifsudestemg\sctapi\model\entity\Cinema.class
+br\edu\ifsudestemg\sctapi\model\entity\Administrador.class

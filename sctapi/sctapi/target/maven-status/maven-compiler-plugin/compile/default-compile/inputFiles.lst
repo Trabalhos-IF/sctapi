@@ -5,6 +5,7 @@ C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudest
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\exception\RegraNegocioException.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Sessao.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\TipoExibicao.java
+C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\CredenciaisDTO.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Compra.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\TipoAssentoRepository.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\TipoExibicaoRepository.java
@@ -12,6 +13,7 @@ C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudest
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\FormaPagamentoRepository.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\CinemaService.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\CinemaDTO.java
+C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\config\SecurityConfig.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\AssentoService.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\TipoTicketController.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\SalaService.java
@@ -19,6 +21,7 @@ C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudest
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\FilmeDTO.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\SessaoDTO.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\ClienteRepository.java
+C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\UsuarioService.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Cliente.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\SessaoController.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\config\SwaggerConfig.java
@@ -39,6 +42,7 @@ C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudest
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\TipoTicket.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\FormaPagamento.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\AdministradorService.java
+C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\TokenDTO.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\FilmeController.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\CategoriaDTO.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Administrador.java
@@ -57,6 +61,7 @@ C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudest
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\SalaDTO.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\dto\ClienteDTO.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\CategoriaController.java
+C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\security\JwtService.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\SessaoService.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\entity\Categoria.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\TipoTicketRepository.java
@@ -67,7 +72,9 @@ C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudest
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\TipoAssentoService.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\SctapiApplication.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\AdministradorController.java
+C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\security\JwtAuthFilter.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\ClienteController.java
+C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\api\controller\UsuarioController.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\service\CategoriaService.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\AssentoRepository.java
 C:\Users\mathe\Documents\Code\sctapi\sctapi\sctapi\src\main\java\br.edu.ifsudestemg\sctapi\model\repository\CompraRepository.java
