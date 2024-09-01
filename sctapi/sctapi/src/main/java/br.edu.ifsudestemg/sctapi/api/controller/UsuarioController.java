@@ -29,13 +29,13 @@ public class UsuarioController {
     public Usuario salvar(@RequestBody Usuario usuario ){
         String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
         usuario.setSenha(senhaCriptografada);
-        return usuarioService.salvar(usuario);
+        return usuarioService.salvar((Cliente) usuario);
     }
 
     @PostMapping("/auth")
     public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais){
         try{
-            Usuario usuario = Usuario.builder()
+            Cliente usuario = Cliente.builder()
                     .login(credenciais.getLogin())
                     .senha(credenciais.getSenha()).build();
             UserDetails usuarioAutenticado = usuarioService.autenticar(usuario);
