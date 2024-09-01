@@ -1,5 +1,5 @@
 package br.edu.ifsudestemg.sctapi.api.controller;
-//
+
 import br.edu.ifsudestemg.sctapi.api.dto.CredenciaisDTO;
 import br.edu.ifsudestemg.sctapi.api.dto.TokenDTO;
 import br.edu.ifsudestemg.sctapi.exception.SenhaInvalidaException;
@@ -18,7 +18,6 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 @RequestMapping("/api/v1/usuarios")
 @RequiredArgsConstructor
-
 public class UsuarioController {
     private final UsuarioService usuarioService;
     private final PasswordEncoder passwordEncoder;
@@ -26,22 +25,27 @@ public class UsuarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario salvar(@RequestBody Usuario usuario ){
-        String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
-        usuario.setSenha(senhaCriptografada);
-        return usuarioService.salvar((Cliente) usuario);
+    public Usuario salvar(@RequestBody Cliente cliente) {
+        String senhaCriptografada = passwordEncoder.encode(cliente.getSenha());
+        cliente.setSenha(senhaCriptografada);
+        return usuarioService.salvar(cliente);
     }
 
     @PostMapping("/auth")
-    public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais){
-        try{
-            Cliente usuario = Cliente.builder()
-                    .login(credenciais.getLogin())
-                    .senha(credenciais.getSenha()).build();
-            UserDetails usuarioAutenticado = usuarioService.autenticar(usuario);
-            String token = jwtService.gerarToken(usuario);
-            return new TokenDTO(usuario.getLogin(), token);
-        } catch (UsernameNotFoundException | SenhaInvalidaException e ){
+    public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
+        try {
+            Cliente cliente = Cliente.builder()
+                    .email(credenciais.getEmail())
+                    .senha(credenciais.getSenha())
+                    .build();
+
+            UserDetails usuarioAutenticado = usuarioService.autenticar(cliente);
+            String token = jwtService.gerarToken((Usuario) usuarioAutenticado);
+            TokenDTO tokenDTO = new TokenDTO();
+            tokenDTO.setEmail(cliente.getEmail());
+            tokenDTO.setToken(token);
+            return tokenDTO;
+        } catch (UsernameNotFoundException | SenhaInvalidaException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
         }
     }
