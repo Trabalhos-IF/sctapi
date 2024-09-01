@@ -1,9 +1,11 @@
 package br.edu.ifsudestemg.sctapi.service;
 
-//import com.example.sctapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
-import br.edu.ifsudestemg.sctapi.model.entity.*;
+import br.edu.ifsudestemg.sctapi.model.entity.Administrador;
 import br.edu.ifsudestemg.sctapi.model.repository.AdministradorRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,9 +14,9 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class AdministradorService{
+public class AdministradorService implements UserDetailsService {
 
-    private AdministradorRepository repository;
+    private final AdministradorRepository repository;
 
     public AdministradorService(AdministradorRepository repository) {
         this.repository = repository;
@@ -53,5 +55,11 @@ public class AdministradorService{
         if (administrador.getCinemas() == null || administrador.getCinemas().trim().equals("")) {
             throw new RegraNegocioException("Cinema inválido");
         }
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return repository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Administrador não encontrado com o email: " + username));
     }
 }

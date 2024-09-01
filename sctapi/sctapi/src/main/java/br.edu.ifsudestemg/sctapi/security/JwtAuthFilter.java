@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -46,7 +47,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             if (isValid) {
                 String loginUsuario = jwtService.obterLoginUsuario(token);
 
-                // Tentativa de autenticação como Administrador
                 try {
                     UserDetails administrador = administradorService.loadUserByUsername(loginUsuario);
                     UsernamePasswordAuthenticationToken adm = new UsernamePasswordAuthenticationToken(
@@ -54,7 +54,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     adm.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
                     SecurityContextHolder.getContext().setAuthentication(adm);
                 } catch (UsernameNotFoundException e) {
-                    // Não encontrado como administrador, tenta como Cliente
                     try {
                         UserDetails cliente = clienteService.loadUserByUsername(loginUsuario);
                         UsernamePasswordAuthenticationToken clie = new UsernamePasswordAuthenticationToken(
@@ -62,7 +61,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                         clie.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
                         SecurityContextHolder.getContext().setAuthentication(clie);
                     } catch (UsernameNotFoundException ex) {
-                        // Não encontrado como Cliente, tenta como Usuário genérico
                         UserDetails usuario = usuarioService.loadUserByUsername(loginUsuario);
                         UsernamePasswordAuthenticationToken user = new UsernamePasswordAuthenticationToken(
                                 usuario, null, usuario.getAuthorities());
