@@ -58,20 +58,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().disable()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/administradores/**").hasRole("ADMIN")
-                .antMatchers("/api/clientes/**").hasRole("ADMIN")
-                .antMatchers("/api/categorias/**").hasRole("ADMIN")
-                .antMatchers("/api/cinemas/**").permitAll()
-                .antMatchers("/api/compras/**").authenticated()
-                .antMatchers("/api/filmes/**").permitAll()
-                .antMatchers("/api/formaspagamento/**").authenticated()
-                .antMatchers("/api/produtoras/**").hasRole("ADMIN")
-                .antMatchers("/api/salas/**").hasRole("ADMIN")
-                .antMatchers("/api/sessoes/**").permitAll()
-                .antMatchers("/api/tipoassentos/**").hasRole("ADMIN")
-                .antMatchers("/api/tipoexibicoes/**").hasRole("ADMIN")
-                .antMatchers("/api/tipotickets/**").hasRole("ADMIN")
-                .antMatchers("/api/usuarios/**").hasRole("ADMIN")
+                // Endpoints relacionados à administração, acessíveis apenas por administradores
+                .antMatchers("/api/administradores/**",
+                        "/api/clientes/**",
+                        "/api/categorias/**",
+                        "/api/produtoras/**",
+                        "/api/salas/**",
+                        "/api/tipoassentos/**",
+                        "/api/tipoexibicoes/**",
+                        "/api/tipotickets/**",
+                        "/api/usuarios/**").hasRole("ADMIN")
+
+                // Endpoints relacionados a compras e formas de pagamento, acessíveis por usuários autenticados
+                .antMatchers("/api/compras/**",
+                        "/api/formaspagamento/**").authenticated()
+
+                // Endpoints públicos, acessíveis por todos
+                .antMatchers("/api/cinemas/**",
+                        "/api/filmes/**",
+                        "/api/sessoes/**").permitAll()
+
+                // Endpoints do Front-end React
+                .antMatchers("/views/cadastro/**",
+                        "/views/listagem/**").hasRole("ADMIN")  // Apenas administradores podem acessar as páginas de cadastro e listagem
+                .antMatchers("/views/usuarios/comprar").hasRole("USER")  // Apenas clientes logados podem acessar a página de compra
+                .antMatchers("/views/usuarios/**").authenticated() // Usuários autenticados podem acessar qualquer página em `/usuarios`
+
+                // Qualquer outra requisição precisa estar autenticada
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()
