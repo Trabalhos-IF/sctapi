@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f7326970-61f9-488d-b7ce-31c6d56589d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Administrador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/entity/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/AdministradorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/model/repository/AdministradorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/security/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/security/JwtAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/AdministradorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/AdministradorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/src/main/java/br.edu.ifsudestemg/sctapi/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br/edu/ifsudestemg/sctapi/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/sctapi/sctapi/target/classes/br/edu/ifsudestemg/sctapi/config/SecurityConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
