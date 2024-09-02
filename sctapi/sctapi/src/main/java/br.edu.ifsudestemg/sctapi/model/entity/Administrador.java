@@ -1,54 +1,20 @@
 package br.edu.ifsudestemg.sctapi.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.experimental.SuperBuilder;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import java.util.Collection;
-import java.util.Collections;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
-@SuperBuilder
-public class Administrador extends Usuario implements UserDetails {
+//@NoArgsConstructor
+//@AllArgsConstructor
+public class Administrador extends Usuario {
+
 
     private String Cinemas;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-    }
-
-    @Override
-    public String getPassword() {
-        return getSenha();
-    }
-
-    @Override
-    public String getUsername() {
-        return getEmail();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+    //@ManyToOne
 }

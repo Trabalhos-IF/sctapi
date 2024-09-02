@@ -1,11 +1,9 @@
 package br.edu.ifsudestemg.sctapi.service;
 
+//import com.example.scaapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
-import br.edu.ifsudestemg.sctapi.model.entity.Cliente;
+import br.edu.ifsudestemg.sctapi.model.entity.*;
 import br.edu.ifsudestemg.sctapi.model.repository.ClienteRepository;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,9 +12,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class ClienteService implements UserDetailsService {
-
-    private final ClienteRepository repository;
+public class ClienteService{
+     private ClienteRepository repository;
 
     public ClienteService(ClienteRepository repository) {
         this.repository = repository;
@@ -52,11 +49,5 @@ public class ClienteService implements UserDetailsService {
         if (cliente.getEmail() == null || cliente.getEmail().trim().equals("")) {
             throw new RegraNegocioException("Email inválido");
         }
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return repository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Cliente não encontrado com o email: " + username));
     }
 }
