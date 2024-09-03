@@ -14,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +28,8 @@ import java.util.stream.Collectors;
 public class AdministradorController{
 
     private final AdministradorService service;
+    private final PasswordEncoder passwordEncoder;
+
     public Administrador converter(AdministradorDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(dto, Administrador.class);

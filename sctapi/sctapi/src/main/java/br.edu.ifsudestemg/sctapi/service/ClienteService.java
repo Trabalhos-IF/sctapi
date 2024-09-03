@@ -1,9 +1,11 @@
 package br.edu.ifsudestemg.sctapi.service;
 
-//import com.example.scaapi.exception.RegraNegocioException;
 import br.edu.ifsudestemg.sctapi.exception.RegraNegocioException;
-import br.edu.ifsudestemg.sctapi.model.entity.*;
+import br.edu.ifsudestemg.sctapi.model.entity.Cliente;
 import br.edu.ifsudestemg.sctapi.model.repository.ClienteRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,8 +14,9 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class ClienteService{
-     private ClienteRepository repository;
+public class ClienteService  {
+
+    private final ClienteRepository repository;
 
     public ClienteService(ClienteRepository repository) {
         this.repository = repository;
@@ -50,4 +53,6 @@ public class ClienteService{
             throw new RegraNegocioException("Email inválido");
         }
     }
+
+
 }
