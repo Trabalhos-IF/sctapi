@@ -1,0 +1,204 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+
+\geometry{a4paper, margin=2cm}
+
+\title{Análise de Métricas para Sistema de Compra de Ingressos}
+\author{Seu Nome}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Questão 1: Métricas CK e Lorenz \& Kidd}
+
+\begin{table}[ht]
+\centering
+\caption{Métricas por Classe}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Classe} & \textbf{WMC} & \textbf{DIT} & \textbf{NOC} & \textbf{CBO} & \textbf{CS} & \textbf{NOO} & \textbf{NOA} & \textbf{SI} \\ \hline
+Administrador & 7 & 1 & 0 & 2 & 8 & 7 & 1 & 0.875 \\ \hline
+Assento & 0 & 0 & 0 & 2 & 5 & 0 & 3 & 0 \\ \hline
+Categoria & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 0 \\ \hline
+Cinema & 0 & 0 & 0 & 2 & 7 & 0 & 5 & 0 \\ \hline
+Cliente & 7 & 1 & 0 & 2 & 10 & 7 & 3 & 0.7 \\ \hline
+Compra & 0 & 0 & 0 & 3 & 8 & 0 & 5 & 0 \\ \hline
+Filme & 0 & 0 & 0 & 2 & 6 & 0 & 4 & 0 \\ \hline
+FormaPagamento & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 0 \\ \hline
+Produtora & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 0 \\ \hline
+Sala & 0 & 0 & 0 & 1 & 4 & 0 & 3 & 0 \\ \hline
+Sessão & 0 & 0 & 0 & 4 & 7 & 0 & 3 & 0 \\ \hline
+TipoAssento & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 0 \\ \hline
+TipoExibicao & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 0 \\ \hline
+TipoTicket & 0 & 0 & 0 & 1 & 4 & 0 & 3 & 0 \\ \hline
+Usuario & 0 & 0 & 2 & 0 & 7 & 0 & 6 & 0 \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Classes mais complexas:}
+\begin{itemize}
+\item \textbf{Administrador/Cliente}: Maior WMC (7) por implementarem UserDetails
+\item \textbf{Sessão}: Maior CBO (4) por relacionar 4 entidades
+\item \textbf{Compra}: CBO=3 e CS=8 por transações complexas
+\end{itemize}
+
+\section*{Questão 2: Cálculo Completo da Complexidade Ciclomática}
+
+\begin{table}[ht]
+\centering
+\caption{Complexidade Ciclomática de Todos os Métodos}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|c|c|}
+\hline
+\textbf{Classe} & \textbf{Método} & \textbf{CC} & \textbf{Detalhamento} \\ \hline
+Administrador & getAuthorities() & 1 & Return direto \\ \hline
+Administrador & getPassword() & 1 & Chamada simples \\ \hline
+Administrador & getUsername() & 1 & Acesso direto \\ \hline
+Administrador & isAccountNonExpired() & 1 & Return fixo \\ \hline
+Administrador & isAccountNonLocked() & 1 & Return fixo \\ \hline
+Administrador & isCredentialsNonExpired() & 1 & Return fixo \\ \hline
+Administrador & isEnabled() & 1 & Return fixo \\ \hline
+Cliente & getAuthorities() & 1 & Return direto \\ \hline
+Cliente & getPassword() & 1 & Chamada simples \\ \hline
+Cliente & getUsername() & 1 & Acesso direto \\ \hline
+Cliente & isAccountNonExpired() & 1 & Return fixo \\ \hline
+Cliente & isAccountNonLocked() & 1 & Return fixo \\ \hline
+Cliente & isCredentialsNonExpired() & 1 & Return fixo \\ \hline
+Cliente & isEnabled() & 1 & Return fixo \\ \hline
+Todas Entidades & Getters/Setters & 1 & Acesso direto \\ \hline
+Todas Entidades & hashCode()/equals() & 2 & Condicional simples \\ \hline
+Todas Entidades & toString() & 1 & Concatenação \\ \hline
+Compra & (Hip.) validarEstoque() & 7 & 3 condições + loop \\ \hline
+Sessão & (Hip.) verificarHorario() & 5 & Validações aninhadas \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Legenda:}
+\begin{itemize}
+\item CC=1: Métodos com fluxo linear (87\% dos métodos)
+\item CC=2: Métodos com 1 condicional (hashCode/equals)
+\item CC>5: Métodos complexos hipotéticos
+\end{itemize}
+
+\section*{Questão 3: Priorização de Testes Baseada em Métricas}
+
+\begin{table}[ht]
+\centering
+\caption{Elementos Prioritários para Testes}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Elemento} & \textbf{Métrica} & \textbf{Valor} & \textbf{Prioridade} \\ \hline
+Classe Sessão & CBO & 4 & Alta \\ \hline
+Classe Compra & CBO & 3 & Alta \\ \hline
+Método validarEstoque (hip.) & CC & 7 & Crítica \\ \hline
+Método equals() & CC & 2 & Média \\ \hline
+Classe Administrador & WMC & 7 & Alta \\ \hline
+Classe Cliente & WMC & 7 & Alta \\ \hline
+Relacionamento Sessão-Sala & CS & 7 & Alta \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Justificativas:}
+\begin{itemize}
+\item \textbf{CBO > 2}: Classes com múltiplas dependências (Sessão e Compra)
+\item \textbf{WMC > 5}: Classes com muitos métodos (Administrador/Cliente)
+\item \textbf{CC > 5}: Métodos complexos não implementados
+\item \textbf{CS > 5}: Estruturas com alta carga semântica
+\end{itemize}
+
+\section*{Questão 4: Grafo de Complexidade Ciclomática}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Início};
+\node (proc1) [process, below of=start] {Verificar estoque};
+\node (dec1) [decision, below of=proc1, yshift=-0.5cm] {Disponível?};
+\node (proc2) [process, right of=dec1, xshift=2cm] {Reservar assentos};
+\node (proc3) [process, below of=dec1] {Validar pagamento};
+\node (dec2) [decision, below of=proc3] {Pagamento OK?};
+\node (end) [startstop, below of=dec2] {Fim};
+
+\draw [->] (start) -- (proc1);
+\draw [->] (proc1) -- (dec1);
+\draw [->] (dec1) -- node[anchor=south] {Sim} (proc2);
+\draw [->] (dec1) -- node[anchor=east] {Não} (proc3);
+\draw [->] (proc2) |- (end);
+\draw [->] (proc3) -- (dec2);
+\draw [->] (dec2) -- node[anchor=east] {Sim} (end);
+\draw [->] (dec2) -| node[anchor=north] {Não} ([xshift=-2cm]proc3.west) |- (proc1);
+\end{tikzpicture}
+\caption{Grafo hipotético para método \texttt{processarCompra()} (CC=5)}
+\end{figure}
+
+\section*{Questão 5: Tabela Completa de Casos de Teste}
+
+\begin{table}[ht]
+\centering
+\caption{Casos de Teste para Compra de Ingressos - Análise do Valor Limite}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Parâmetro} & \textbf{Valores Teste} & \textbf{Cenário} & \textbf{Entrada} & \textbf{Resultado Esperado} \\ \hline
+\multirow{6}{*}{Quantidade de Ingressos (1-10)} 
+& 0 & Abaixo do mínimo & 0 ingressos & Erro: quantidade inválida \\ \cline{2-5}
+& 1 & Mínimo válido & 1 ingresso & Sucesso \\ \cline{2-5}
+& 2 & Acima do mínimo & 2 ingressos & Sucesso \\ \cline{2-5}
+& 9 & Abaixo do máximo & 9 ingressos & Sucesso \\ \cline{2-5}
+& 10 & Máximo válido & 10 ingressos & Sucesso \\ \cline{2-5}
+& 11 & Acima do máximo & 11 ingressos & Erro: limite excedido \\ \hline
+
+\multirow{6}{*}{Data da Sessão} 
+& Data passada & Inválida & 01/01/2020 & Erro: data expirada \\ \cline{2-5}
+& Data atual & Mínimo válido & Hoje & Sucesso \\ \cline{2-5}
+& Data atual + 1 dia & Válido normal & Amanhã & Sucesso \\ \cline{2-5}
+& Data atual + 29 dias & Válido normal & +29 dias & Sucesso \\ \cline{2-5}
+& Data atual + 30 dias & Máximo válido & +30 dias & Sucesso \\ \cline{2-5}
+& Data atual + 31 dias & Acima do máximo & +31 dias & Erro: data inválida \\ \hline
+
+\multirow{6}{*}{Valor do Ingresso (R\$)} 
+& 19.99 & Abaixo do mínimo & R\$19.99 & Erro: valor inválido \\ \cline{2-5}
+& 20.00 & Mínimo válido & R\$20.00 & Sucesso \\ \cline{2-5}
+& 20.01 & Acima do mínimo & R\$20.01 & Sucesso \\ \cline{2-5}
+& 99.99 & Abaixo do máximo & R\$99.99 & Sucesso \\ \cline{2-5}
+& 100.00 & Máximo válido & R\$100.00 & Sucesso \\ \cline{2-5}
+& 100.01 & Acima do máximo & R\$100.01 & Erro: valor inválido \\ \hline
+
+\multirow{4}{*}{Disponibilidade Assento} 
+& Todos disponíveis & Cenário ideal & 5 assentos livres & Sucesso \\ \cline{2-5}
+& Parcialmente disponível & Limite crítico & 1 assento livre & Sucesso \\ \cline{2-5}
+& Sem disponibilidade & Caso extremo & 0 assentos & Erro: sem lugares \\ \cline{2-5}
+& Reserva concorrente & Condição de corrida & 2 usuários simultâneos & Apenas 1 sucesso \\ \hline
+
+\multirow{3}{*}{Forma Pagamento} 
+& Cartão crédito & Caso válido & Visa & Sucesso \\ \cline{2-5}
+& Cartão débito & Caso válido & Mastercard & Sucesso \\ \cline{2-5}
+& Voucher & Caso especial & Código promocional & Sucesso \\ \hline
+
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Observações:}
+\begin{itemize}
+\item \textbf{Valores baseados} nos campos das entidades Compra (quantidade), Sessão (data), Assento (disponivel) e TipoTicket (valor)
+\item \textbf{Cenários críticos} incluem reservas concorrentes e limites operacionais
+\item \textbf{Combinações} devem ser testadas entre diferentes parâmetros (ex: quantidade máxima + data limite)
+\item \textbf{Prioridade:} Testar primeiro os limites numéricos (quantidade e valores) seguido das validações temporais
+\end{itemize}
+
+\end{document}
