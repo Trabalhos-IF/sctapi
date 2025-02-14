@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import javax.persistence.*;
@@ -21,6 +22,12 @@ public class Sessao{
     private LocalDate dtExibicao ;
    private LocalTime horarioInicial;
     //private float reservaAssentosMeia;
+
+        public boolean verificarHorario() {
+        LocalDateTime agora = LocalDateTime.now();
+        LocalDateTime horarioSessao = LocalDateTime.of(dtExibicao, horarioInicial);
+        return horarioSessao.isAfter(agora.plusMinutes(30)); // Válido se for pelo menos 30 min no futuro
+    }
 
     @ManyToOne
     private Sala sala;

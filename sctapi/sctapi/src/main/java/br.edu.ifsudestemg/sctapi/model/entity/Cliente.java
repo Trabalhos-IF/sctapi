@@ -26,6 +26,8 @@ public class Cliente extends Usuario implements UserDetails {
         return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
+    private int tentativasLogin;
+
     @Override
     public String getPassword() {
         return getSenha();
@@ -54,5 +56,16 @@ public class Cliente extends Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public boolean autenticarUsuario(String senha) {
+        if(tentativasLogin >= 3) return false;
+
+        if(this.senha.equals(senha)) {
+            tentativasLogin = 0;
+            return true;
+        }
+        tentativasLogin++;
+        return false;
     }
 }
