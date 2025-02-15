@@ -1,4 +1,5 @@
 package br.edu.ifsudestemg.sctapi.model.entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,13 +21,13 @@ public class Pagamento {
     private String codigoTransacao;
 
     public boolean processarPagamento(double valor, String tipoPagamento) {
-        // Simulação de integração com gateway de pagamento
-        if("CREDITO".equalsIgnoreCase(tipoPagamento) || "DEBITO".equalsIgnoreCase(tipoPagamento)) {
+        if ("CREDITO".equalsIgnoreCase(tipoPagamento) || "DEBITO".equalsIgnoreCase(tipoPagamento)) {
             this.status = "APROVADO";
-            this.codigoTransacao = "TX-" + UUID.randomUUID().toString().substring(0,8);
-            return true;
+            this.codigoTransacao = "TX-" + UUID.randomUUID().toString().substring(0, 8);
+            return true; // Pagamento aprovado
+        } else {
+            this.status = "RECUSADO";
+            return false; // Pagamento recusado
         }
-        this.status = "RECUSADO";
-        return false;
     }
 }

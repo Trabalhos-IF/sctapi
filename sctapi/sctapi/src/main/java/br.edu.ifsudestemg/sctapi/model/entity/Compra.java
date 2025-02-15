@@ -12,8 +12,7 @@ import java.util.stream.Collectors;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class Compra{
+public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -22,16 +21,6 @@ public class Compra{
     private String email;
     private int quantidade;
     private float valor;
-
-        public boolean validarEstoque(int quantidadeRequerida) {
-        if(sessao == null || sessao.getSala() == null) return false;
-        
-        int assentosDisponiveis = sessao.getSala().getAssentos().stream()
-            .filter(Assento::isDisponivel)
-            .collect(Collectors.toList()).size();
-            
-        return assentosDisponiveis >= quantidadeRequerida;
-    }
 
     @ManyToOne
     private FormaPagamento formaPagamento;
@@ -42,4 +31,17 @@ public class Compra{
     @ManyToOne
     private Sessao sessao;
 
+    public boolean validarEstoque(int quantidadeRequerida) {
+        if (sessao == null || sessao.getSala() == null) {
+            return false; // Sessão ou sala inválida
+        }
+
+        // Conta quantos assentos estão disponíveis na sala da sessão
+        int assentosDisponiveis = sessao.getSala().getAssentos().stream()
+            .filter(Assento::isDisponivel)
+            .collect(Collectors.toList())
+            .size();
+
+        return assentosDisponiveis >= quantidadeRequerida; // Retorna true se houver assentos suficientes
+    }
 }

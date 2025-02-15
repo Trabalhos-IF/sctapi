@@ -1,4 +1,5 @@
 package br.edu.ifsudestemg.sctapi.model.entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +22,9 @@ public class Promocao {
     private double desconto;
 
     public boolean validarPromocoes(String codigoUsuario) {
-        return LocalDate.now().isBefore(validoAte) &&
-                codigo.equalsIgnoreCase(codigoUsuario) &&
-                desconto > 0 && desconto <= 50;
+        // Verifica se a promoção está dentro do prazo, se o código é válido e se o desconto está entre 0 e 50
+        return LocalDate.now().isBefore(this.validoAte) &&
+               this.codigo.equalsIgnoreCase(codigoUsuario) &&
+               this.desconto > 0 && this.desconto <= 50;
     }
 }
