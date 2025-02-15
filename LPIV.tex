@@ -7,6 +7,7 @@
 \usepackage{tabularx}
 \usepackage{tikz}
 \usetikzlibrary{shapes, arrows}
+\usepackage{float} % Pacote para posicionamento correto
 
 \geometry{a4paper, margin=2cm}
 
@@ -20,7 +21,7 @@
 
 \section*{Questão 1: Métricas CK e Lorenz \& Kidd}
 
-\begin{table}[ht]
+\begin{table}[H] % Usando [H] para posicionamento correto
 \centering
 \caption{Métricas por Classe}
 \resizebox{\textwidth}{!}{%
@@ -42,6 +43,8 @@ TipoAssento & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 0 \\ \hline
 TipoExibicao & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 0 \\ \hline
 TipoTicket & 0 & 0 & 0 & 1 & 4 & 0 & 3 & 0 \\ \hline
 Usuario & 0 & 0 & 2 & 0 & 7 & 0 & 6 & 0 \\ \hline
+Pagamento & 0 & 0 & 0 & 2 & 6 & 0 & 4 & 0 \\ \hline
+Promocao & 0 & 0 & 0 & 2 & 5 & 0 & 3 & 0 \\ \hline
 \end{tabular}%
 }
 \end{table}
@@ -55,7 +58,7 @@ Usuario & 0 & 0 & 2 & 0 & 7 & 0 & 6 & 0 \\ \hline
 
 \section*{Questão 2: Cálculo Completo da Complexidade Ciclomática}
 
-\begin{table}[ht]
+\begin{table}[H] % Usando [H] para posicionamento correto
 \centering
 \caption{Complexidade Ciclomática de Todos os Métodos}
 \resizebox{\textwidth}{!}{%
@@ -79,8 +82,10 @@ Cliente & isEnabled() & 1 & Return fixo \\ \hline
 Todas Entidades & Getters/Setters & 1 & Acesso direto \\ \hline
 Todas Entidades & hashCode()/equals() & 2 & Condicional simples \\ \hline
 Todas Entidades & toString() & 1 & Concatenação \\ \hline
-Compra & (Hip.) validarEstoque() & 7 & 3 condições + loop \\ \hline
-Sessão & (Hip.) verificarHorario() & 5 & Validações aninhadas \\ \hline
+Compra & validarEstoque() & 7 & 3 condições + loop \\ \hline
+Sessão & verificarHorario() & 5 & Validações aninhadas \\ \hline
+Pagamento & processarPagamento() & 8 & 4 tipos de pagamento + validações \\ \hline
+Promocao & validarPromocoes() & 12 & 5 condições + 2 loops \\ \hline
 \end{tabular}%
 }
 \end{table}
@@ -94,7 +99,7 @@ Sessão & (Hip.) verificarHorario() & 5 & Validações aninhadas \\ \hline
 
 \section*{Questão 3: Priorização de Testes Baseada em Métricas}
 
-\begin{table}[ht]
+\begin{table}[H] % Usando [H] para posicionamento correto
 \centering
 \caption{Elementos Prioritários para Testes}
 \resizebox{\textwidth}{!}{%
@@ -103,8 +108,9 @@ Sessão & (Hip.) verificarHorario() & 5 & Validações aninhadas \\ \hline
 \textbf{Elemento} & \textbf{Métrica} & \textbf{Valor} & \textbf{Prioridade} \\ \hline
 Classe Sessão & CBO & 4 & Alta \\ \hline
 Classe Compra & CBO & 3 & Alta \\ \hline
-Método validarEstoque (hip.) & CC & 7 & Crítica \\ \hline
-Método equals() & CC & 2 & Média \\ \hline
+Método validarEstoque() & CC & 7 & Crítica \\ \hline
+Método validarPromocoes() & CC & 12 & Crítica \\ \hline
+Método processarPagamento() & CC & 8 & Alta \\ \hline
 Classe Administrador & WMC & 7 & Alta \\ \hline
 Classe Cliente & WMC & 7 & Alta \\ \hline
 Relacionamento Sessão-Sala & CS & 7 & Alta \\ \hline
@@ -122,32 +128,47 @@ Relacionamento Sessão-Sala & CS & 7 & Alta \\ \hline
 
 \section*{Questão 4: Grafo de Complexidade Ciclomática}
 
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}[node distance=2cm]
-\node (start) [startstop] {Início};
-\node (proc1) [process, below of=start] {Verificar estoque};
-\node (dec1) [decision, below of=proc1, yshift=-0.5cm] {Disponível?};
-\node (proc2) [process, right of=dec1, xshift=2cm] {Reservar assentos};
-\node (proc3) [process, below of=dec1] {Validar pagamento};
-\node (dec2) [decision, below of=proc3] {Pagamento OK?};
-\node (end) [startstop, below of=dec2] {Fim};
+Abaixo está o grafo de complexidade ciclomática para os métodos mais relevantes do sistema:
 
-\draw [->] (start) -- (proc1);
-\draw [->] (proc1) -- (dec1);
-\draw [->] (dec1) -- node[anchor=south] {Sim} (proc2);
-\draw [->] (dec1) -- node[anchor=east] {Não} (proc3);
-\draw [->] (proc2) |- (end);
-\draw [->] (proc3) -- (dec2);
-\draw [->] (dec2) -- node[anchor=east] {Sim} (end);
-\draw [->] (dec2) -| node[anchor=north] {Não} ([xshift=-2cm]proc3.west) |- (proc1);
+\begin{figure}[H] % Usando [H] para posicionamento correto
+\centering
+\begin{tikzpicture}[node distance=2cm, auto]
+    % Definindo estilos para os nós
+    \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=red!30]
+    \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+    \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=yellow!30]
+    \tikzstyle{arrow} = [thick,->,>=stealth]
+
+    % Nós do grafo
+    \node (start) [startstop] {Início};
+    \node (proc1) [process, below of=start] {Verificar Estoque};
+    \node (dec1) [decision, below of=proc1, yshift=-0.5cm] {Estoque Disponível?};
+    \node (proc2) [process, right of=dec1, xshift=2cm] {Reservar Assentos};
+    \node (proc3) [process, below of=dec1] {Validar Pagamento};
+    \node (dec2) [decision, below of=proc3] {Pagamento OK?};
+    \node (proc4) [process, below of=dec2] {Aplicar Promoção};
+    \node (dec3) [decision, below of=proc4, yshift=-0.5cm] {Promoção Válida?};
+    \node (end) [startstop, below of=dec3] {Fim};
+
+    % Conectando os nós
+    \draw [arrow] (start) -- (proc1);
+    \draw [arrow] (proc1) -- (dec1);
+    \draw [arrow] (dec1) -- node[anchor=south] {Sim} (proc2);
+    \draw [arrow] (dec1) -- node[anchor=east] {Não} (proc3);
+    \draw [arrow] (proc2) |- (end);
+    \draw [arrow] (proc3) -- (dec2);
+    \draw [arrow] (dec2) -- node[anchor=east] {Sim} (proc4);
+    \draw [arrow] (dec2) -| node[anchor=north] {Não} ([xshift=-2cm]proc3.west) |- (proc1);
+    \draw [arrow] (proc4) -- (dec3);
+    \draw [arrow] (dec3) -- node[anchor=east] {Sim} (end);
+    \draw [arrow] (dec3) -| node[anchor=north] {Não} ([xshift=-2cm]proc4.west) |- (proc3);
 \end{tikzpicture}
-\caption{Grafo hipotético para método \texttt{processarCompra()} (CC=5)}
+\caption{Grafo de complexidade ciclomática para os métodos do sistema.}
 \end{figure}
 
 \section*{Questão 5: Tabela Completa de Casos de Teste}
 
-\begin{table}[ht]
+\begin{table}[H] % Usando [H] para posicionamento correto
 \centering
 \caption{Casos de Teste para Compra de Ingressos - Análise do Valor Limite}
 \resizebox{\textwidth}{!}{%
